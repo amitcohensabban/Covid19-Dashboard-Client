@@ -1,0 +1,59 @@
+.container{
+  display: flex;
+  gap: 10px;
+}
+
+.bigger-num{
+  font-size: 18px;
+  font-weight: 700;
+  margin-right: 10px;
+}
+.bigNumber {
+  position: absolute;
+  top: 35px;
+  right: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+.littleNumber {
+  margin-left: 5px;
+  font-size: 12.8px;
+  font-weight: 700 ;
+}
+.littleLine {
+  font-size: 12px;
+  margin-left: 5px;
+  font-weight: 400;
+}
+.container-little-line {
+  display: flex;
+  position: absolute;
+  top: 65px;
+  right: 10px;
+}
+// .container-2-line-a{
+//   width: fit-content;
+//   display: flex;
+//   flex-direction: row-reverse;
+//   position: relative;
+//   top: 50px;
+// }
+
+.container-3-line-a{
+}
+.container-3-line-b{
+}
+.container-3-line-c{
+position: relative;
+top: -15px;
+}
+.container-3-line-d{
+  position: relative;
+  top: 85px;
+}
+.container-3-line-e{
+  position: relative;
+    top: 85px;
+}
+

@@ -1,0 +1,11 @@
+.section {
+  display: block;
+  color: var(--text-basic-color);
+  margin: 0 20px;
+  overflow-y: visible;
+  overflow-x: clip;
+  padding: 15px 0;
+}
+.first-section {
+padding-top: 0;
+}

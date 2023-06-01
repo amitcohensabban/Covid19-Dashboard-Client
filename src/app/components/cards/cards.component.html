@@ -1,0 +1,38 @@
+<div class="container">
+  <div
+    *ngFor="let data of dataToDisplay; let i = index"
+    class="card"
+    [id]="data.id"
+  >
+    <app-card-header
+      class="header"
+      [id]="data.id"
+      [text]="data.title"
+    ></app-card-header>
+    <div class="body">
+      <app-info-card
+        class="info-card"
+        id="{{ data?.idBigNumber }}"
+        *ngIf="data.bigNumber"
+        [classNum]="'bigNumber'"
+        [num]="data.bigNumber"
+      ></app-info-card>
+
+      <div *ngIf="data?.isCircleNeeded" class="circle red-1"></div>
+      <div *ngIf="data?.isCircleNeeded" class="circle red-2"></div>
+      <div *ngIf="data?.isCircleNeeded" class="circle yellow"></div>
+
+      <div class="container-big-lines">
+        <ng-container *ngFor="let item of data.subLineObjects">
+          <app-card-line
+            [classContainer]="item.classContainer"
+            [classNum]="item.classNum"
+            [classText]="item.classText"
+            [num]="item.num"
+            [text]="item.text"
+          ></app-card-line>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
