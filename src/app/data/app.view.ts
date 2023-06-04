@@ -39,7 +39,7 @@ export const viewOnCards = [
     bigNumber: 37,
 
     id: 'c3',
-    isCircleNeeded: true,
+    isCircle: true,
     subLineObjects: [
       {
         classText: 'littleLine',

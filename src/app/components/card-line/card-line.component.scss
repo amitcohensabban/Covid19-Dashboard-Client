@@ -1,9 +1,9 @@
-.container{
+.container {
   display: flex;
   gap: 10px;
 }
 
-.bigger-num{
+.bigger-num {
   font-size: 18px;
   font-weight: 700;
   margin-right: 10px;
@@ -19,7 +19,7 @@
 .littleNumber {
   margin-left: 5px;
   font-size: 12.8px;
-  font-weight: 700 ;
+  font-weight: 700;
 }
 .littleLine {
   font-size: 12px;
@@ -32,28 +32,54 @@
   top: 65px;
   right: 10px;
 }
-// .container-2-line-a{
-//   width: fit-content;
-//   display: flex;
-//   flex-direction: row-reverse;
-//   position: relative;
-//   top: 50px;
-// }
 
-.container-3-line-a{
-}
-.container-3-line-b{
-}
-.container-3-line-c{
-position: relative;
-top: -15px;
-}
-.container-3-line-d{
+.container-3-line-a {
   position: relative;
-  top: 85px;
+  top: -45px;
+  right: 11px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  align-items: center;
 }
-.container-3-line-e{
+.container-3-line-b {
   position: relative;
-    top: 85px;
+  right: 16px;
+  top: -9px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  align-items: center;
 }
-
+.container-3-line-c {
+  position: relative;
+  top: 30px;
+  right: -8px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  align-items: center;
+}
+.container-3-line-d {
+  position: relative;
+  top: 65px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  align-items: center;
+}
+.container-3-line-e {
+  position: relative;
+  top: 94px;
+  right: -12px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  align-items: center;
+}
+.container-5-line {
+  display: flex;
+flex-direction: row-reverse;
+justify-content: space-between;
+font-size: 12.8px;
+}

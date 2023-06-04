@@ -18,9 +18,9 @@
         [num]="data.bigNumber"
       ></app-info-card>
 
-      <div *ngIf="data?.isCircleNeeded" class="circle red-1"></div>
-      <div *ngIf="data?.isCircleNeeded" class="circle red-2"></div>
-      <div *ngIf="data?.isCircleNeeded" class="circle yellow"></div>
+      <div *ngIf="data?.isCircle" class="circle red-1"></div>
+      <div *ngIf="data?.isCircle" class="circle red-2"></div>
+      <div *ngIf="data?.isCircle" class="circle yellow"></div>
 
       <div class="container-big-lines">
         <ng-container *ngFor="let item of data.subLineObjects">
