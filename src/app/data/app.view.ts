@@ -144,3 +144,71 @@ export const viewOnCards = [
     ],
   },
 ];
+export const lastSevenDays = [
+  {
+    title: 'מספר המאומתים',
+    bigNumber: '736',
+    id: 'c7',
+    subLineObjects: [
+      {
+        classText: 'littleLine',
+        classContainer: 'container-7-line-a',
+        classNum: 'littleNumber',
+        num: '+7%',
+        text: 'משבעה ימים קודמים',
+      },
+    ],
+  },
+  {
+    title: 'מספר חולים קשה',
+    bigNumber: 12,
+
+    id: 'c8',
+    subLineObjects: [
+      {
+        classText: 'littleLine',
+        classContainer: 'container-8-line-a',
+        classNum: 'littleNumber',
+        num: '-47.8%',
+        text: 'משבעה ימים קודמים',
+      },
+    ],
+  },
+  {
+    title: 'מספר נפטרים',
+    bigNumber: 3,
+
+    id: 'c9',
+    subLineObjects: [
+      {
+        classText: 'littleLine',
+        classContainer: 'container-9-line-a',
+        classNum: 'littleNumber',
+        num: '-40%',
+        text: 'משבעה ימים קודמים',
+      },
+    ],
+  },
+  {
+    title: 'מספר נבדקים',
+    bigNumber: '9,918',
+
+    id: 'c10',
+    subLineObjects: [
+      {
+        classText: 'littleLine',
+        classContainer: 'container-10-line-a',
+        classNum: 'littleNumber',
+        num: '-5.02%',
+        text: 'משבעה ימים קודמים',
+      },
+      {
+        classText: 'littleLine',
+        classContainer: 'container-10-line-b',
+        classNum: 'littleNumber',
+        num: '7.4%',
+        text: 'נבדקים חיוביים',
+      },
+    ],
+  },
+];
