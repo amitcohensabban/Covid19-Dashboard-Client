@@ -11,3 +11,10 @@ export const pages = [
   'התחסנות האוכלוסיה',
   'רמזור בישובים',
 ];
+export const
+numberOfCards=[
+  0,3,2,3,2,3,3,3,3
+];
+
+
+

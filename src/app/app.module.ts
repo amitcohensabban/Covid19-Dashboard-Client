@@ -12,6 +12,7 @@ import { CardHeaderComponent } from './components/card-header/card-header.compon
 import { CardsComponent } from './components/cards/cards.component';
 import { CardLineComponent } from './components/card-line/card-line.component';
 import { LastSevenDaysComponent } from './components/last-seven-days/last-seven-days.component';
+import { SectionComponent } from './components/section/section.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { LastSevenDaysComponent } from './components/last-seven-days/last-seven-
     CardHeaderComponent,
     CardsComponent,
     CardLineComponent,
-    LastSevenDaysComponent
+    LastSevenDaysComponent,
+    SectionComponent
   ],
   imports: [
     BrowserModule,

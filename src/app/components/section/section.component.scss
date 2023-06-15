@@ -1,0 +1,20 @@
+.data-wrraper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin-inline-start: 10px;
+  margin-inline-end: 10px;
+  .section-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+      .section-header {
+        margin: 0;
+        display: inline-block;
+        margin-inline-end: 16px;
+        font-size: 19px;
+      }
+
+  }
+}

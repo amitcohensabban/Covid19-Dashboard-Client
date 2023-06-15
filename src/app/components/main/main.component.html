@@ -1,5 +1,7 @@
 <app-first-section class="section first-section"></app-first-section>
-
+<ng-container *ngFor="let title of titlesForSections;let i = index">
+  <app-section class="section" [cardCount]="numberOfCards[i]" [title]="title" *ngIf="title !== 'מבט על'"></app-section>
+</ng-container>
 
 
 
