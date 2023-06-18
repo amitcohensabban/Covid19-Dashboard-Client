@@ -8,5 +8,5 @@ import { numberOfCards } from 'src/app/data/app.anchorList';
 })
 export class MainComponent {
 titlesForSections:string[]=pages;
-numberOfCards:number[]=numberOfCards;
+numberOfCards: any[] = numberOfCards.slice(0, this.titlesForSections.length);
 }

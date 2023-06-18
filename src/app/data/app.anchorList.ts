@@ -11,10 +11,16 @@ export const pages = [
   'התחסנות האוכלוסיה',
   'רמזור בישובים',
 ];
-export const
-numberOfCards=[
-  0,3,2,3,2,3,3,3,3
+export const numberOfCards = [
+  { value: 0, labels: [] },
+  { value: 3, labels: ['empty', 'empty', 'empty'] },
+  { value: 2, labels: ['graph', 'empty'] },
+  { value: 3, labels: ['empty', 'empty', 'empty'] },
+  { value: 2, labels: ['table', 'empty'] },
+  { value: 3, labels: ['graph', 'empty', 'table'] },
+  { value: 3, labels: ['table', 'graph', 'empty'] },
+  { value: 3, labels: ['empty', 'table', 'graph'] },
+  { value: 3, labels: ['graph', 'empty', 'table'] }
 ];
-
 
 
