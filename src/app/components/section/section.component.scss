@@ -8,7 +8,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    
+
       .section-header {
         margin: 0;
         display: inline-block;
@@ -18,3 +18,8 @@
 
   }
 }
+.cards
+{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;}
