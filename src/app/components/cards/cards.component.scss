@@ -6,11 +6,11 @@
   gap: 5px;
   left: 7px;
   .card {
+    background: var(--card-background-color);
     color: var(--text-basic-color);
     min-height: 184px;
     height: 211px;
     width: 23% !important;
-    background: white;
     margin-right: 10px;
     margin-bottom: 10px;
     border-radius: 10px;

@@ -1,1 +1,77 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+--card-background-color: #ffffff;
+--text-basic-color: #222b45;
+--banner-background-color: #e6f1f4;
+--select-outline-basic-border-color: #e4e9f2;
+--select-outline-basic-text-color: #222b45;
+--select-round-border-radius: 1.5rem;
+--select-outline-border-style: solid;
+--filter-button-background-color: #f7f9fc;
+--select-outline-border-width: 1px;
+--card-margin-bottom: 20px;
+--card-header-text-font-family: 'Open Sans Hebrew';
+--card-shadow: none;
+--card-header-text-color: #222b45;
+--card-header-text-font-weight: 600;
+--card-divider-color: #d8d8d9;
+--layout-text-color: #222b45;
+--card-padding: 16px;
+--tooltip-border-width: 1px;
+--tooltip-border-style: solid;
+--tooltip-border-color: #ffffff;
+--layout-window-mode-background-color: #F8FAFD;
+--action-link: #308BF6;
+--btn-bg-color: #D5E0F4;
+--btn-border-color: #C3CACF;
+--tree-grid-header-background-color: #e6f1f3;
+
+}
+
+@font-face {
+  font-family:"Open Sans Hebrew" ;
+  src: url(./assets/OpenSansHebrew-Bold.ttf);
+  src: url(./assets/OpenSansHebrew-Regular.ttf);
+}
+
+body{
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  overflow: overlay;
+  box-sizing: border-box;
+  z-index: 999;
+  position: relative;
+  direction: rtl;
+  font-family: "Open Sans Hebrew";
+  font-weight: bold;
+  background-color:var(--card-background-color);
+}
+
+
+.dark-mode {
+  --card-background-color: #374F60;
+  --text-basic-color: #ffffff;
+  --banner-background-color: #2a3b47;
+  --select-outline-basic-border-color: #79858e;
+  --select-outline-basic-text-color: #ffffff;
+  --select-round-border-radius: 1.5rem;
+  --select-outline-border-style: solid;
+  --filter-button-background-color: #4e6275;
+  --select-outline-border-width: 1px;
+  --card-margin-bottom: 20px;
+  --card-header-text-font-family: 'Open Sans Hebrew';
+  --card-shadow: rgba(26, 31, 51, 0.18) 0 8px 4px 0;
+  --card-header-text-color: #ffffff;
+  --card-header-text-font-weight: 600;
+  --card-divider-color: #d8d8d9;
+  --layout-text-color: #ffffff;
+  --card-padding: 16px;
+  --tooltip-border-width: 1px;
+  --tooltip-border-style: solid;
+  --tooltip-border-color: #b3b3b5;
+  --layout-window-mode-background-color: #4B6170;
+  --action-link: #9ee4ff;
+  --btn-bg-color: #495b7b;
+  --btn-border-color: #8394a0;
+  --tree-grid-header-background-color: #2a3b47;
+}

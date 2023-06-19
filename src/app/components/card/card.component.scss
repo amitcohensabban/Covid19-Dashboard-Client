@@ -1,17 +1,17 @@
 :host{
+  background: var(--card-background-color);
     color: var(--text-basic-color);
     min-height: 184px;
     height: 350px;
     min-width: 31%;
-    background: white;
     margin-right: 10px;
     margin-bottom: 10px;
     border-radius: 10px;
     position: relative;
     box-sizing: border-box;
-    box-shadow: 0 3px 15px -2px #00020233;
-    display: flex;
+    box-shadow: 3px 3px 11px #465a7a1c;    display: flex;
     flex-direction: column;
+    border: 1px solid rgba(186,186,186,.23);
     @media screen and (min-width: 769px)and (max-width:1280px) {
       min-width: 47% ;
       height: 350px;
@@ -19,6 +19,9 @@
     @media screen and (max-width: 768px){
       width: 100%;
     }
+}
+.header{
+  padding: var(--card-padding) var(--card-padding) 0;
 }
 
 

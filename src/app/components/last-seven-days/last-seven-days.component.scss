@@ -1,6 +1,6 @@
 .white {
-  background: #ffffff;
-  width: 96vw;
+  background: var(--card-background-color);
+    width: 96vw;
   border-radius: 15px;
   padding: 5px;
 }

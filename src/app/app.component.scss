@@ -1,0 +1,25 @@
+.header {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999999999;
+  background-color: white;
+}
+.nav {
+  display: block;
+  position: fixed;
+  top: 75px;
+  left: 0;
+  right: 0;
+  z-index: 99999999;
+  margin-top: -1px;
+}
+.main{
+  position: relative;
+    top: 133px;
+    right: 0;
+    left: 0;
+}
+

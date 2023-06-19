@@ -8,7 +8,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-
+    margin: 10px;
       .section-header {
         margin: 0;
         display: inline-block;
@@ -22,4 +22,5 @@
 {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;}
+  flex-wrap: wrap;
+}
