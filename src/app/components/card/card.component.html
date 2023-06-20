@@ -1,3 +1,8 @@
-<app-card-header class="header"></app-card-header>
-<app-card-body></app-card-body>
+<app-card-header *ngIf="card !== 'empty'" class="header"></app-card-header>
 
+<ng-container >
+    <app-card-body>
+
+      <app-table *ngIf="card === 'table'"></app-table>
+    </app-card-body>
+</ng-container>

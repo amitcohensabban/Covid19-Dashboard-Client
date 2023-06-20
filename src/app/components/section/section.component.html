@@ -8,6 +8,6 @@
   </div>
 
   <div class="cards">
-    <app-card *ngFor="let _ of generateCards(cardCount)"></app-card>
+    <app-card *ngFor="let card of labels;let i = index; " [card]="card"></app-card>
   </div>
-</div>
+  </div>

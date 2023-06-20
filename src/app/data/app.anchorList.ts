@@ -13,18 +13,17 @@ export const pages = [
   'רמזור בישובים',
 ];
 export const numberOfCards = [
-  { value: 0, labels: [] },
-  { value: 3, labels: ['empty', 'empty', 'empty'] },
-  { value: 2, labels: ['empty', 'table'] },
-  { value: 3, labels: ['empty', 'empty', 'empty'] },
-  { value: 3, labels: ['empty', 'empty', 'table'] },
-  { value: 3, labels: ['graph', 'empty', 'table'] },
-  { value: 2, labels: ['table', 'graph', 'empty'] },
-  { value: 3, labels: ['empty', 'table', 'graph'] },
-  { value: 3, labels: ['graph', 'empty', 'table'] },
-  { value: 3, labels: ['empty', 'table', 'graph'] },
-  { value: 2, labels: ['graph', 'empty', 'table'] }
-
+  { title:  'מבט על', value: 0, labels: [] },
+  { title: 'מדדים מרכזיים', value: 3, labels: ['empty', 'empty', 'empty'] },
+  { title: 'מדדי תחלואה כללית', value: 2, labels: ['empty', 'table'] },
+  { title:   'תחלואה ואשפוזי ילדים', value: 3, labels: ['empty', 'empty', 'empty'] },
+  { title: 'תחלואה מחול', value: 3, labels: ['empty', 'empty', 'table'] },
+  { title: 'השפעת התחסנות על התחלואה', value: 3, labels: ['empty', 'empty', 'table'] },
+  { title:  'נפטרים', value: 2, labels: [ 'empty', 'empty'] },
+  { title: 'בדיקות', value: 3, labels: ['empty', 'table', 'graph'] },
+  { title: 'תחקורים נוספים', value: 3, labels: ['graph', 'empty', 'table'] },
+  { title: 'תחלואה חוזרת ומחלימים', value: 3, labels: ['empty', 'table', 'empty'] },
+  { title: 'התחסנות האוכלוסיה', value: 3, labels: ['empty', 'empty', 'empty'] },
+  { title: 'רמזור בישובים', value: 2, labels: [ 'empty', 'table'] }
 ];
-
 
