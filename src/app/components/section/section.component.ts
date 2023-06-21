@@ -18,9 +18,9 @@ export class SectionComponent implements OnInit {
     this.getTrafficLightsPlanTable();
     this.getVerifiedPatientsTable();
 
-    console.log(this.bedOccupancyData);
-    console.log(this.trafficLightsPlanData);
-    console.log(this.verifiedPatientsData);
+    // console.log(this.bedOccupancyData);
+    // console.log(this.trafficLightsPlanData);
+    // console.log(this.verifiedPatientsData);
   }
   @Input() title!: string;
   @Input() cardCount!: number;
@@ -51,4 +51,16 @@ export class SectionComponent implements OnInit {
       (error) => {}
     );
   }
+  getTableData(title: string): any[] {
+    if (this.title === 'מדדי תחלואה כללית') {
+      return this.bedOccupancyData;
+    }
+    if (this.title === 'תחלואה מחול') {
+      return this.verifiedPatientsData;
+    }if (this.title === 'רמזור בישובים') {
+      return this.trafficLightsPlanData;
+    }
+    return [];
+  }
+
 }
