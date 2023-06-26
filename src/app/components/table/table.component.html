@@ -1,6 +1,7 @@
 <ng-container *ngFor="let item of tableData">
-  
-  <div *ngIf="item[0].hospitalName === 'הדסה עין כרם'" class="table-container">
+
+  <div *ngIf="item[0].hospitalName === 'הדסה עין כרם'" class="table-container rtl-scroll">
+
     <table >
       <thead class="header-table">
         <tr>
@@ -17,9 +18,10 @@
         </tr>
       </tbody>
     </table>
+
   </div>
 
-  <div *ngIf="tableData[0][0].countryName === 'ארצות הברית'" class="table-container">
+  <div *ngIf="tableData[0][0].countryName === 'ארצות הברית'" class="table-container rtl-scroll">
     <table >
       <thead class="header-table">
         <tr>
@@ -42,13 +44,13 @@
     </table>
   </div>
 
-  <div *ngIf="tableData[0][0].city === 'אור יהודה'" class="table-container">
+  <div *ngIf="tableData[0][0].city === 'אור יהודה'" class="table-container rtl-scroll">
     <table >
       <thead class="header-table">
         <tr>
           <th>יישוב</th>
           <th>ציון</th>
-          <th>חולים חדשים לכל 10,000</th>
+          <th>חולים חדשים </th>
           <th>הבדיקות החיוביות</th>
           <th>שיעור שינוי מאומתים</th>
           <th>חולים פעילים</th>
@@ -60,7 +62,7 @@
           <td>{{ item.grade }}</td>
           <td>{{ item.newPatients }}</td>
           <td>{{ item.positivePatients }}</td>
-          <td>{{ item.rateOfChange }}</td>
+          <td>{{ item.rateOfChange|number:'1.2-2' }}</td>
           <td>{{ item.activePatients }}</td>
         </tr>
       </tbody>
