@@ -1,0 +1,44 @@
+<div class="filters-dropdown-container">
+  <div class="filters-dropdown-button" (click)="toggleFilteringDropdown()">
+    <span class="filters-dropdown-label" >{{ selectedValues }}</span>
+    <div
+      class="dropdown-arrow"
+      [ngClass]="isFilteringOptionOpen ? 'up' : 'down'"
+    >
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g data-name="chevron-down"><rect width="24" height="24" opacity="0"></rect><path d="M12 15.5a1 1 0 0 1-.71-.29l-4-4a1 1 0 1 1 1.42-1.42L12 13.1l3.3-3.18a1 1 0 1 1 1.38 1.44l-4 3.86a1 1 0 0 1-.68.28z"></path></g></g></svg>
+  </div>
+  </div>
+  <div class="filters-dropdown-items-container" *ngIf="isFilteringOptionOpen">
+    <app-search *ngIf="isFilteringOptionOpen"></app-search>
+    <div class="filters-dropdown-options-container">
+      <div *ngFor="let section of filterOptions; let last = last">
+        <h4>{{ section.section }}</h4>
+        <div *ngIf="section.type === 'checkbox'">
+          <div *ngFor="let option of section.options">
+            <label>
+              <input type="checkbox" [(ngModel)]="option.isChecked" />
+              {{ option.label }}
+            </label>
+          </div>
+        </div>
+        <div *ngIf="section.type === 'radio'">
+          <div *ngFor="let option of section.options">
+            <label>
+              <input
+                type="radio"
+                [(ngModel)]="section.selectedItem"
+                [value]="option.value"
+              />
+              {{ option.label }}
+            </label>
+          </div>
+        </div>
+        <hr *ngIf="!last" />
+      </div>
+    </div>
+    <div class="dropdown-buttons">
+      <button (click)="applySelection()">אישור</button>
+      <button (click)="cancelSelection()">ביטול</button>
+    </div>
+  </div>
+</div>

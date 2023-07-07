@@ -39,4 +39,31 @@ export const numberOfCards = [
   { title: 'רמזור בישובים', value: 2, labels: ['empty', 'table'] },
 ];
 
-export const tables = ['1', '2', '3'];
+export const tables = [{number:'1',title:'התפוסת מיטות בביה"ח'}, {number:'2',title:'מאומתים הנכנסים לישראל לפי מדינות'}, {number:'3',title:'התפוסת מיטות בביה"ח'}];
+
+
+
+
+
+
+export const filterOptions: any[] = [
+  {
+    section: 'Section 1',
+    type: 'checkbox',
+    options: [
+      { label: 'Option 1', isChecked: false },
+      { label: 'Option 2', isChecked: true },
+      { label: 'Option 3', isChecked: false },
+    ],
+  },
+  {
+    section: 'Section 2',
+    type: 'radio',
+    options: [
+      { label: 'Option 4', value: 'value1' },
+      { label: 'Option 5', value: 'value2' },
+      { label: 'Option 6', value: 'value3' },
+    ],
+    selectedItem: 'value2',
+    },
+  ];

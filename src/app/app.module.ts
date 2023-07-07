@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-
+import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -17,7 +17,9 @@ import { SectionComponent } from './components/section/section.component';
 import { CardComponent } from './components/card/card.component';
 import { CardBodyComponent } from './components/card-body/card-body.component';
 import { TableComponent } from './components/table/table.component';
-
+import { TableHeaderComponent } from './components/table-header/table-header.component';
+import { SelectComponent } from './components/select/select.component';
+import { SearchComponent } from './components/search/search.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,11 +35,14 @@ import { TableComponent } from './components/table/table.component';
     SectionComponent,
     CardComponent,
     CardBodyComponent,
-    TableComponent
+    TableComponent,
+    TableHeaderComponent,
+    SelectComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,HttpClientModule
+    AppRoutingModule,HttpClientModule,ReactiveFormsModule,FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

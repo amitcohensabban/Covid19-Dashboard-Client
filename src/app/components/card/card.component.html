@@ -1,4 +1,7 @@
-<app-card-header *ngIf="card !== 'empty'" class="header"></app-card-header>
+<!-- <ng-container *ngFor="let item of tables"> -->
 
+  <app-table-header *ngIf="card == 'table'" [tableData]="tableData" ></app-table-header>
+<!-- </ng-container> -->
 <app-table *ngIf="card == 'table'" [tableData]="tableData"></app-table>
 
+<!-- [tableTitle]="" -->

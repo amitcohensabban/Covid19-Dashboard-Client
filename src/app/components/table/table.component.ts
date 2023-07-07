@@ -7,7 +7,7 @@ import { tables } from 'src/app/data/app.anchorList';
 })
 export class TableComponent implements OnInit {
   @Input() tableData: any;
-  tableNumbers!: string[];
+  tableNumbers!: any[];
   ngOnInit(): void {
     console.log(this.tableData);
     this.tableNumbers = tables;
