@@ -1,3 +1,40 @@
+<div class="header">
+  <div class="title">
+  <h3 *ngIf="tableData && tableData[0] && tableData[0][0]?.hospitalName === 'הדסה עין כרם'">תפוסת מיטות בביה"ח</h3>
+  <h3 *ngIf="tableData && tableData[0] && tableData[0][0].countryName === 'ארצות הברית'">מאומתים הנכנסים לישראל לפי מדינות</h3>
+  <h3 *ngIf="tableData && tableData[0] && tableData[0][0].city === 'אור יהודה'">תכנית הרמזור</h3>
+
+
+
+
+    <svg
+      class="icon"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      role="img"
+      width="1em"
+      height="1em"
+      viewBox="0 0 24 24"
+    >
+      <g fill="currentColor">
+        <g data-name="info">
+          <rect
+            width="24"
+            height="24"
+            transform="rotate(180 12 12)"
+            opacity="0"
+          ></rect>
+          <path
+            d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14a1 1 0 0 1-2 0v-5a1 1 0 0 1 2 0zm-1-7a1 1 0 1 1 1-1 1 1 0 0 1-1 1z"
+          ></path>
+        </g>
+      </g>
+    </svg>
+</div>
+  <button class="three-points"  aria-label="card action menu" aria-expanded="false" fdprocessedid="yi38s6p">
+    <span  class="size-limit"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 16 16"><g fill="currentColor"><path d="M9.5 13a1.5 1.5 0 1 1-3 0a1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0a1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0a1.5 1.5 0 0 1 3 0z"></path></g></svg></span></button>
+
+</div>
+
+
 <app-select></app-select>
-<button class="three-points" _ngcontent-avh-c102="" aria-label="card action menu" aria-expanded="false" fdprocessedid="yi38s6p">
-    <span _ngcontent-avh-c90="" class="size-limit"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 16 16"><g fill="currentColor"><path d="M9.5 13a1.5 1.5 0 1 1-3 0a1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0a1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0a1.5 1.5 0 0 1 3 0z"></path></g></svg></span></button>

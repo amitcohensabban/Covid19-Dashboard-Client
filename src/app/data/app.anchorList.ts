@@ -39,7 +39,8 @@ export const numberOfCards = [
   { title: 'רמזור בישובים', value: 2, labels: ['empty', 'table'] },
 ];
 
-export const tables = [{number:'1',title:'התפוסת מיטות בביה"ח'}, {number:'2',title:'מאומתים הנכנסים לישראל לפי מדינות'}, {number:'3',title:'התפוסת מיטות בביה"ח'}];
+export const tables = [{number:'1',title:'תפוסת מיטות בביה"ח'},
+ {number:'2',title:'מאומתים הנכנסים לישראל לפי מדינות'}, {number:'3',title:'תכנית הרמזור'}];
 
 
 

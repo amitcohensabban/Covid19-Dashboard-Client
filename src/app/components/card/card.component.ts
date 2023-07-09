@@ -7,6 +7,8 @@ import { tables } from 'src/app/data/app.anchorList';
 })
 export class CardComponent implements OnInit {
   tables!:any[];
+  @Input()index!: string;
+
   ngOnInit(): void {
     console.log(this.card);
     this.tables = tables;

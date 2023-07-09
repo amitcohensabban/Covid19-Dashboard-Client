@@ -12,6 +12,7 @@ export class SectionComponent implements OnInit {
   verifiedPatientsData: any[] = [];
   @Input() labels: any[] = [];
   sections: any[] = numberOfCards;
+  tableNumber!:any;
   constructor(private tablesService: TablesService) {}
   ngOnInit(): void {
     this.getBedOccupancyTable();
@@ -51,16 +52,20 @@ export class SectionComponent implements OnInit {
       (error) => {}
     );
   }
-  getTableData(title: string): any[] {
+  getTableData(): any[] {
     if (this.title === 'מדדי תחלואה כללית') {
+      // this.tableNumber = 0;
       return this.bedOccupancyData;
-    }
-    if (this.title === 'תחלואה מחול') {
+    } else if (this.title === 'תחלואה מחול') {
+      // this.tableNumber = 1;
       return this.verifiedPatientsData;
-    }if (this.title === 'רמזור בישובים') {
+    } else if (this.title === 'רמזור בישובים') {
+      // this.tableNumber = 2;
       return this.trafficLightsPlanData;
+    } else {
+      // this.tableNumber = 3;
+      return [];
     }
-    return [];
   }
 
 }
