@@ -47,7 +47,31 @@ export const tables = [{number:'1',title:'תפוסת מיטות בביה"ח'},
 
 
 
-export const filterOptions: any[] = [
+export const filterOptionsBedOccupancy: any[] = [
+ { placeHolder:'placeholder',}
+//   {
+//     section: 'Section 1',
+//     type: 'checkbox',
+//     options: [
+//       { label: 'Option 1', isChecked: false },
+//       { label: 'Option 2', isChecked: true },
+//       { label: 'Option 3', isChecked: false },
+//     ],
+//   },
+//   {
+//     section: 'Section 2',
+//     type: 'radio',
+//     options: [
+//       { label: 'Option 4', value: 'value1' },
+//       { label: 'Option 5', value: 'value2' },
+//       { label: 'Option 6', value: 'value3' },
+//     ],
+//     selectedItem: 'value2',
+// },
+];
+
+
+export const filterOptionsVerifiedPatients: any[] = [
   {
     section: 'Section 1',
     type: 'checkbox',
@@ -66,5 +90,30 @@ export const filterOptions: any[] = [
       { label: 'Option 6', value: 'value3' },
     ],
     selectedItem: 'value2',
-    },
-  ];
+},
+];
+
+
+
+
+export const filterOptionsTrafficLightsPlan: any[] = [
+  {
+    section: 'Section 1',
+    type: 'checkbox',
+    options: [
+      { label: 'Option 1', isChecked: false },
+      { label: 'Option 2', isChecked: true },
+      { label: 'Option 3', isChecked: false },
+    ],
+  },
+  {
+    section: 'Section 2',
+    type: 'radio',
+    options: [
+      { label: 'Option 4', value: 'value1' },
+      { label: 'Option 5', value: 'value2' },
+      { label: 'Option 6', value: 'value3' },
+    ],
+    selectedItem: 'value2',
+},
+];

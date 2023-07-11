@@ -9,7 +9,7 @@
   </div>
   </div>
   <div class="filters-dropdown-items-container" *ngIf="isFilteringOptionOpen">
-    <app-search *ngIf="isFilteringOptionOpen"></app-search>
+    <app-search  *ngIf="isFilteringOptionOpen"[options]="processArrayData(this.tableData)"></app-search>
     <div class="filters-dropdown-options-container">
       <div *ngFor="let section of filterOptions; let last = last">
         <h4>{{ section.section }}</h4>

@@ -1,4 +1,11 @@
-
 <div class="search-container">
-  <input class="input" type="text" placeholder="">
+  <input class="input" type="text" [placeholder]="searchPlaceholder" [(ngModel)]="searchQuery" (click)="showOptions()"(input)="filterOptions()">
+  <div class="options" *ngIf="optionsVisible">
+    <div *ngFor="let option of filteredOptions">
+      <label>
+        <input type="checkbox" [checked]="selectedOptions.includes(option)" (change)="toggleOption(option)">
+        {{ option }}
+      </label>
+    </div>
+  </div>
 </div>

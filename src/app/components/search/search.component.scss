@@ -1,3 +1,11 @@
+.options{
+  position: absolute;
+  background: white;
+  height: 77%;
+  width: 100%;
+  overflow: auto;
+  z-index: 1;
+}
 .input{
   padding: 3px;
   margin: 12px 5px 0px 0;
@@ -5,3 +13,40 @@
   width: 148px;
   font-size: 15px;
 }
+.options::-webkit-scrollbar {
+  width: 7px;
+}
+
+.options::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+.options::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 5px;
+}
+
+.options::-webkit-scrollbar-thumb:hover {
+  background-color: #555; }
+  .dropdown-buttons {
+    position: absolute;
+    z-index: 98;
+    bottom: 0;
+    width: 100%;
+    inset-inline-start: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    border-radius: 0 0 4px 4px;
+    overflow: hidden;
+    height: 2rem;
+  }
+
+  .dropdown-buttons button {
+    color: var(--text-basic-color);
+    flex: 1;
+    background: var(--banner-background-color);
+    padding: 0;
+    border: none;
+    font-size: inherit;
+    cursor: pointer;}

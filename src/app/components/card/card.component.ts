@@ -10,7 +10,7 @@ export class CardComponent implements OnInit {
   @Input()index!: string;
 
   ngOnInit(): void {
-    console.log(this.card);
+    // console.log(this.card);
     this.tables = tables;
   }
   @Input() card!: any;
