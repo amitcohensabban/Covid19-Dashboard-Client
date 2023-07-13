@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FilterService } from 'src/app/services/filter.service';
 @Component({
   selector: 'app-select',
   templateUrl: './select.component.html',
@@ -6,42 +7,68 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class SelectComponent implements OnInit {
   @Input() filterOptions: any[] = [];
-  @Input() tableData!: any[] ;
+  @Input() tableData!: any[];
   selectedValues!: string;
-  searchOptions!:any[];
+  searchOptions!: any[];
   isFilteringOptionOpen: boolean = false;
-
+  isSearchComponentClicked = false;
+  isApplyClicked = false;
+  hasCheckedOptions = false;
   previousSelection: any[] = [];
+  selectedCheckBoxesLength: number = 0;
+  InnerTitle = '';
+
+  constructor(private filterService: FilterService) {}
 
   ngOnInit(): void {
     this.cloneFilterOptions();
     this.getSelectedValues();
-    // console.log(this.filterOptions);
-    // console.log(this.tableData);
-  this.processArrayData(this.tableData);
+    this.processArrayData(this.tableData);
+    this.setInnerTitle();
+  }
+  handleSearchComponentClick(optionsVisible: boolean) {
+    this.isSearchComponentClicked = !this.isSearchComponentClicked;
+  }
+  showOptions(): void {
+    this.isSearchComponentClicked = true;
+  }
+  toggleFilteringDropdown() {
+    if (this.isApplyClicked) {
+      this.isFilteringOptionOpen = false;
+      this.isApplyClicked = false;
+    } else if (!this.isSearchComponentClicked) {
+      this.isFilteringOptionOpen = !this.isFilteringOptionOpen;
+    }
+    this.isSearchComponentClicked = false;
   }
 
-  toggleFilteringDropdown() {
-    this.isFilteringOptionOpen = !this.isFilteringOptionOpen;
-  }
   closeFilteringDropdown() {
     this.isFilteringOptionOpen = false;
-  }
 
+    this.isSearchComponentClicked = false;
+    this.isApplyClicked = false;
+  }
   cloneFilterOptions() {
     this.previousSelection = JSON.parse(JSON.stringify(this.filterOptions));
   }
 
-  cancelSelection() {}
+  cancelSelection() {
+    this.filterOptions = JSON.parse(JSON.stringify(this.previousSelection));
+    this.closeFilteringDropdown();
+  }
 
   applySelection() {
-    this.cloneFilterOptions();
-    this.getSelectedValues();
-    this.isFilteringOptionOpen = false;
+    if (this.isSearchComponentClicked) {
+      this.isSearchComponentClicked = false;
+    }
+    this.selectedCheckBoxesLength =
+      this.filterService.getSelectedCheckBoxesLength();
   }
 
   getSelectedValues() {
     const selectedValues = [];
+
+    console.log(this.filterOptions);
 
     for (const section of this.filterOptions) {
       if (section.type === 'checkbox') {
@@ -51,6 +78,9 @@ export class SelectComponent implements OnInit {
         selectedValues.push(
           ...selectedOptions.map((option: any) => option.label)
         );
+        if (selectedOptions.length > 0) {
+          this.hasCheckedOptions = true;
+        }
       } else if (section.type === 'radio') {
         const selectedItem = section.options.find(
           (option: any) => option.value === section.selectedItem
@@ -64,9 +94,9 @@ export class SelectComponent implements OnInit {
     this.selectedValues = selectedValues.join(', ');
   }
 
-   processArrayData(arr: any[]): string[] {
+  processArrayData(arr: any[]): string[] {
     if (arr.length === 10) {
-      this.searchOptions= arr.map((item) => item.hospitalName);
+      this.searchOptions = arr.map((item) => item.hospitalName);
       return this.searchOptions;
     } else if (arr.length === 37) {
       this.searchOptions = arr.map((item) => item.countryName);
@@ -77,5 +107,10 @@ export class SelectComponent implements OnInit {
     } else {
       return [];
     }
+  }
+  setInnerTitle(): void {
+    if (this.tableData.length == 10) this.InnerTitle = ' בתי חולים/מוסד נבחרו';
+    if (this.tableData.length == 20) this.InnerTitle = 'ערים נבחרו';
+    if (this.tableData.length == 37) this.InnerTitle = 'מדינות נבחרו  ';
   }
 }
