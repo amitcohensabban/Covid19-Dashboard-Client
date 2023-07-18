@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { TablesService } from 'src/app/services/tables.service';
 import { numberOfCards } from 'src/app/data/app.anchorList';
+import { FilterService } from 'src/app/services/filter.service';
 @Component({
   selector: 'app-section',
   templateUrl: './section.component.html',
@@ -12,16 +13,12 @@ export class SectionComponent implements OnInit {
   verifiedPatientsData: any[] = [];
   @Input() labels: any[] = [];
   sections: any[] = numberOfCards;
-  tableNumber!:any;
-  constructor(private tablesService: TablesService) {}
+  tableNumber!: any;
+  constructor(private tablesService: TablesService,private filterService:FilterService) {}
   ngOnInit(): void {
     this.getBedOccupancyTable();
     this.getTrafficLightsPlanTable();
     this.getVerifiedPatientsTable();
-
-    // console.log(this.bedOccupancyData);
-    // console.log(this.trafficLightsPlanData);
-    // console.log(this.verifiedPatientsData);
   }
   @Input() title!: string;
   @Input() cardCount!: number;
@@ -30,6 +27,7 @@ export class SectionComponent implements OnInit {
     this.tablesService.getBedOccupancyTable().subscribe(
       (response) => {
         this.bedOccupancyData.push(response);
+        this.filterService.filteredData['bedOccupancyTable'].next(response)
       },
       (error) => {}
     );
@@ -39,6 +37,8 @@ export class SectionComponent implements OnInit {
     this.tablesService.getTrafficLightsPlanTable().subscribe(
       (response) => {
         this.trafficLightsPlanData.push(response);
+        this.filterService.filteredData['verifiedPatientsTable'].next(response)
+
       },
       (error) => {}
     );
@@ -48,24 +48,30 @@ export class SectionComponent implements OnInit {
     this.tablesService.getVerifiedPatientsTable().subscribe(
       (response) => {
         this.verifiedPatientsData.push(response);
+        this.filterService.filteredData['trafficLightsPlanTable'].next(response)
+
       },
       (error) => {}
     );
   }
-  getTableData(): any[] {
+  getTableData(): any {
     if (this.title === 'מדדי תחלואה כללית') {
-      // this.tableNumber = 0;
-      return this.bedOccupancyData;
+      return {
+        tableData: this.bedOccupancyData,
+        tableName: 'bedOccupancyTable',
+      };
     } else if (this.title === 'תחלואה מחול') {
-      // this.tableNumber = 1;
-      return this.verifiedPatientsData;
+      return {
+        tableData: this.verifiedPatientsData,
+        tableName: 'verifiedPatientsTable',
+      };
     } else if (this.title === 'רמזור בישובים') {
-      // this.tableNumber = 2;
-      return this.trafficLightsPlanData;
+      return {
+        tableData: this.trafficLightsPlanData,
+        tableName: 'trafficLightsPlanTable',
+      };
     } else {
-      // this.tableNumber = 3;
-      return [];
+      return { tableData: [], tableName: '' }; // Make sure to return a valid empty value
     }
   }
-
 }

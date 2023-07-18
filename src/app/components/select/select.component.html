@@ -30,6 +30,7 @@
       [options]="processArrayData(this.tableData)"
       (searchComponentClicked)="handleSearchComponentClick($event)"
       [optionsVisible]="isSearchComponentClicked"
+      [tableData]="tableData"
     ></app-search>
     <div class="filters-dropdown-options-container">
       <div *ngFor="let section of filterOptions; let last = last">

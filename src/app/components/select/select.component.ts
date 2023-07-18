@@ -8,6 +8,7 @@ import { FilterService } from 'src/app/services/filter.service';
 export class SelectComponent implements OnInit {
   @Input() filterOptions: any[] = [];
   @Input() tableData!: any[];
+  @Input() tableName!: string;
   selectedValues!: string;
   searchOptions!: any[];
   isFilteringOptionOpen: boolean = false;
@@ -60,11 +61,13 @@ export class SelectComponent implements OnInit {
   applySelection() {
     if (this.isSearchComponentClicked) {
       this.isSearchComponentClicked = false;
+    } else {
+      this.filterService.getFilteredData(this.tableData, this.tableName);
+      this.isFilteringOptionOpen = false;
     }
     this.selectedCheckBoxesLength =
       this.filterService.getSelectedCheckBoxesLength();
   }
-
   getSelectedValues() {
     const selectedValues = [];
 

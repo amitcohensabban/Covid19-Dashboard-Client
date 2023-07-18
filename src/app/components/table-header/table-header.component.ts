@@ -18,6 +18,8 @@ export class TableHeaderComponent implements OnInit {
   filterOptionsVerifiedPatients!: any[];
 
   @Input() tableData!: any;
+  @Input() tableName!: any;
+
   ngOnInit(): void {
     // console.log(this.tableData);
     this.tables = tables;

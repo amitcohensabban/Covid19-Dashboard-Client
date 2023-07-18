@@ -12,7 +12,8 @@ export const pages = [
   'התחסנות האוכלוסיה',
   'רמזור בישובים',
 ];
-export const numberOfCards = [
+export type Sections = { title: string; value: number; labels: string[] };
+export const numberOfCards: Sections[] = [
   { title: 'מבט על', value: 0, labels: [] },
   { title: 'מדדים מרכזיים', value: 3, labels: ['empty', 'empty', 'empty'] },
   { title: 'מדדי תחלואה כללית', value: 2, labels: ['empty', 'table'] },
@@ -39,37 +40,34 @@ export const numberOfCards = [
   { title: 'רמזור בישובים', value: 2, labels: ['empty', 'table'] },
 ];
 
-export const tables = [{number:'1',title:'תפוסת מיטות בביה"ח'},
- {number:'2',title:'מאומתים הנכנסים לישראל לפי מדינות'}, {number:'3',title:'תכנית הרמזור'}];
-
-
-
-
-
-
-export const filterOptionsBedOccupancy: any[] = [
- { placeHolder:'placeholder',}
-//   {
-//     section: 'Section 1',
-//     type: 'checkbox',
-//     options: [
-//       { label: 'Option 1', isChecked: false },
-//       { label: 'Option 2', isChecked: true },
-//       { label: 'Option 3', isChecked: false },
-//     ],
-//   },
-//   {
-//     section: 'Section 2',
-//     type: 'radio',
-//     options: [
-//       { label: 'Option 4', value: 'value1' },
-//       { label: 'Option 5', value: 'value2' },
-//       { label: 'Option 6', value: 'value3' },
-//     ],
-//     selectedItem: 'value2',
-// },
+export const tables = [
+  { number: '1', title: 'תפוסת מיטות בביה"ח' },
+  { number: '2', title: 'מאומתים הנכנסים לישראל לפי מדינות' },
+  { number: '3', title: 'תכנית הרמזור' },
 ];
 
+export const filterOptionsBedOccupancy: any[] = [
+  { placeHolder: 'placeholder' },
+  //   {
+  //     section: 'Section 1',
+  //     type: 'checkbox',
+  //     options: [
+  //       { label: 'Option 1', isChecked: false },
+  //       { label: 'Option 2', isChecked: true },
+  //       { label: 'Option 3', isChecked: false },
+  //     ],
+  //   },
+  //   {
+  //     section: 'Section 2',
+  //     type: 'radio',
+  //     options: [
+  //       { label: 'Option 4', value: 'value1' },
+  //       { label: 'Option 5', value: 'value2' },
+  //       { label: 'Option 6', value: 'value3' },
+  //     ],
+  //     selectedItem: 'value2',
+  // },
+];
 
 export const filterOptionsVerifiedPatients: any[] = [
   {
@@ -90,11 +88,8 @@ export const filterOptionsVerifiedPatients: any[] = [
       { label: 'Option 6', value: 'value3' },
     ],
     selectedItem: 'value2',
-},
+  },
 ];
-
-
-
 
 export const filterOptionsTrafficLightsPlan: any[] = [
   {
@@ -115,5 +110,5 @@ export const filterOptionsTrafficLightsPlan: any[] = [
       { label: 'Option 6', value: 'value3' },
     ],
     selectedItem: 'value2',
-},
+  },
 ];

@@ -6,13 +6,14 @@ import { tables } from 'src/app/data/app.anchorList';
   styleUrls: ['./card.component.scss'],
 })
 export class CardComponent implements OnInit {
-  tables!:any[];
-  @Input()index!: string;
+  tables!: any[];
+  @Input() index!: string;
+  @Input() tableName!: string;
+  @Input() card!: any;
+  @Input() tableData: any = [];
 
   ngOnInit(): void {
-    // console.log(this.card);
     this.tables = tables;
+
   }
-  @Input() card!: any;
-  @Input() tableData!: any;
 }

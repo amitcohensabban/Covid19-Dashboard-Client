@@ -1,4 +1,6 @@
 
-  <app-table-header *ngIf="card == 'table'"  [tableData]="tableData" ></app-table-header>
-<app-table *ngIf="card == 'table'" [tableData]="tableData"></app-table>
+<app-table-header *ngIf="card == 'table'"  [tableData]="tableData"[tableName]="tableName" ></app-table-header>
+
+  <app-table *ngIf="card == 'table'" [tableData]="tableData"[tableName]="tableName"></app-table>
+
 

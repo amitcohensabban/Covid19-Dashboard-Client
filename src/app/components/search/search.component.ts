@@ -9,6 +9,7 @@ import { FilterService } from 'src/app/services/filter.service';
 export class SearchComponent implements OnInit {
   @Input() options!: string[];
   @Input() optionsVisible = false;
+  @Input()tableData!:any[];
   selectedOptions: string[] = [];
   searchQuery = '';
   filteredOptions: string[] = [];
@@ -47,9 +48,9 @@ export class SearchComponent implements OnInit {
     this.FilterService.updateSelectedCheckBoxes(this.selectedOptions);
   }
   setPlaceholder(): void {
-    if (this.options.length == 10)
+    if (this.tableData.length == 10)
       this.searchPlaceholder = 'חיפוש בית חולים/מוסד';
-    if (this.options.length == 20) this.searchPlaceholder = 'חיפוש עיר';
-    if (this.options.length == 37) this.searchPlaceholder = 'חיפוש מדינה';
+    if (this.tableData.length == 20) this.searchPlaceholder = 'חיפוש עיר';
+    if (this.tableData.length == 37) this.searchPlaceholder = 'חיפוש מדינה';
   }
 }
