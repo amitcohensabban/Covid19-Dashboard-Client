@@ -16,18 +16,15 @@ export class TableHeaderComponent implements OnInit {
   filterOptionsBedOccupancy!: any[];
   filterOptionsTrafficLightsPlan!: any[];
   filterOptionsVerifiedPatients!: any[];
-
+  @Input()graphTitle?:string;
   @Input() tableData!: any;
   @Input() tableName!: any;
 
   ngOnInit(): void {
-    // console.log(this.tableData);
     this.tables = tables;
     this.filterOptionsBedOccupancy = filterOptionsBedOccupancy;
     this.filterOptionsVerifiedPatients = filterOptionsVerifiedPatients;
     this.filterOptionsTrafficLightsPlan = filterOptionsTrafficLightsPlan;
-//     console.log(this.filterOptionsBedOccupancy);
-// console.log(this.filterOptionsTrafficLightsPlan);
 
   }
 }

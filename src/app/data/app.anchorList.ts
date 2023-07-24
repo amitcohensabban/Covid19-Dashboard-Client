@@ -15,7 +15,7 @@ export const pages = [
 export type Sections = { title: string; value: number; labels: string[] };
 export const numberOfCards: Sections[] = [
   { title: 'מבט על', value: 0, labels: [] },
-  { title: 'מדדים מרכזיים', value: 3, labels: ['empty', 'empty', 'empty'] },
+  { title: 'מדדים מרכזיים', value: 3, labels: ['graph', 'empty', 'graph2'] },
   { title: 'מדדי תחלואה כללית', value: 2, labels: ['empty', 'table'] },
   {
     title: 'תחלואה ואשפוזי ילדים',
@@ -36,7 +36,7 @@ export const numberOfCards: Sections[] = [
     value: 3,
     labels: ['empty', 'empty', 'empty'],
   },
-  { title: 'התחסנות האוכלוסיה', value: 3, labels: ['empty', 'empty', 'empty'] },
+  { title: 'התחסנות האוכלוסיה', value: 3, labels: ['empty', 'empty', 'graph'] },
   { title: 'רמזור בישובים', value: 2, labels: ['empty', 'table'] },
 ];
 

@@ -20,6 +20,8 @@ import { TableComponent } from './components/table/table.component';
 import { TableHeaderComponent } from './components/table-header/table-header.component';
 import { SelectComponent } from './components/select/select.component';
 import { SearchComponent } from './components/search/search.component';
+import { GraphComponent } from './components/graph/graph.component';
+import { NewPatientsDailyComponent } from './components/new-patients-daily/new-patients-daily.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +40,9 @@ import { SearchComponent } from './components/search/search.component';
     TableComponent,
     TableHeaderComponent,
     SelectComponent,
-    SearchComponent
+    SearchComponent,
+    GraphComponent,
+    NewPatientsDailyComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,17 @@
+<app-table-header
+  *ngIf="card == 'table'"
+  [tableData]="tableData"
+  [tableName]="tableName"
+></app-table-header>
+<app-table
+  *ngIf="card == 'table'"
+  [tableData]="tableData"
+  [tableName]="tableName"
+></app-table>
 
-<app-table-header *ngIf="card == 'table'"  [tableData]="tableData"[tableName]="tableName" ></app-table-header>
+<app-table-header *ngIf="card == 'graph'" [graphTitle]="'מספר מאושפזים יומי'"></app-table-header>
+<app-graph *ngIf="card == 'graph'"></app-graph>
 
-  <app-table *ngIf="card == 'table'" [tableData]="tableData"[tableName]="tableName"></app-table>
+<app-table-header *ngIf="card == 'graph2'" [graphTitle]="'מאומתים חדשים יומי'"></app-table-header>
 
-
+<app-new-patients-daily *ngIf="card == 'graph2'"></app-new-patients-daily>
