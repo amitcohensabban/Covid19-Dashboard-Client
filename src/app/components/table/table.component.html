@@ -1,5 +1,3 @@
-<!-- <ng-container *ngFor="let item of filteredTableData"> -->
-  {{filteredTableData.length}}
   <div *ngIf="filteredTableData[0]?.hospitalName === 'הדסה עין כרם'" class="table-container rtl-scroll">
 
     <table >
@@ -59,7 +57,12 @@
       <tbody class="table-body">
         <tr *ngFor="let item of filteredTableData">
           <td>{{ item.city }}</td>
-          <td>{{ item.grade }}</td>
+          <td [ngClass]="{
+            'green-bg': item.grade < 4.5,
+            'yellow-bg': item.grade >= 4.5 && item.grade < 6,
+            'orange-bg': item.grade >= 6 && item.grade < 7.5,
+            'red-bg': item.grade >= 7.5
+          }">{{ item.grade|number:'1.1-1' }}</td>
           <td>{{ item.newPatients }}</td>
           <td>{{ item.positivePatients }}</td>
           <td>{{ item.rateOfChange|number:'1.2-2' }}</td>
@@ -68,4 +71,3 @@
       </tbody>
     </table>
   </div>
-<!-- </ng-container> -->

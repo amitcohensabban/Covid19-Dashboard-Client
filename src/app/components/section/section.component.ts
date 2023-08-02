@@ -17,8 +17,8 @@ export class SectionComponent implements OnInit {
   constructor(private tablesService: TablesService,private filterService:FilterService) {}
   ngOnInit(): void {
     this.getBedOccupancyTable();
-    this.getTrafficLightsPlanTable();
     this.getVerifiedPatientsTable();
+    this.getTrafficLightsPlanTable();
   }
   @Input() title!: string;
   @Input() cardCount!: number;
@@ -37,7 +37,7 @@ export class SectionComponent implements OnInit {
     this.tablesService.getTrafficLightsPlanTable().subscribe(
       (response) => {
         this.trafficLightsPlanData.push(response);
-        this.filterService.filteredData['verifiedPatientsTable'].next(response)
+        this.filterService.filteredData['trafficLightsPlanTable'].next(response)
 
       },
       (error) => {}
@@ -48,7 +48,7 @@ export class SectionComponent implements OnInit {
     this.tablesService.getVerifiedPatientsTable().subscribe(
       (response) => {
         this.verifiedPatientsData.push(response);
-        this.filterService.filteredData['trafficLightsPlanTable'].next(response)
+        this.filterService.filteredData['verifiedPatientsTable'].next(response)
 
       },
       (error) => {}

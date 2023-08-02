@@ -92,23 +92,29 @@ export const filterOptionsVerifiedPatients: any[] = [
 ];
 
 export const filterOptionsTrafficLightsPlan: any[] = [
-  {
-    section: 'Section 1',
-    type: 'checkbox',
-    options: [
-      { label: 'Option 1', isChecked: false },
-      { label: 'Option 2', isChecked: true },
-      { label: 'Option 3', isChecked: false },
-    ],
-  },
-  {
-    section: 'Section 2',
-    type: 'radio',
-    options: [
-      { label: 'Option 4', value: 'value1' },
-      { label: 'Option 5', value: 'value2' },
-      { label: 'Option 6', value: 'value3' },
-    ],
-    selectedItem: 'value2',
-  },
+  // {
+  //   section: 'Section 1',
+  //   type: 'checkbox',
+  //   options: [
+  //     { label: 'Option 1', isChecked: false },
+  //     { label: 'Option 2', isChecked: true },
+  //     { label: 'Option 3', isChecked: false },
+  //   ],
+  // },
+  // {
+  //   section: 'Section 2',
+  //   type: 'radio',
+  //   options: [
+  //     { label: 'Option 4', value: 'value1' },
+  //     { label: 'Option 5', value: 'value2' },
+  //     { label: 'Option 6', value: 'value3' },
+  //   ],
+  //   selectedItem: 'value2',
+  // },
+];
+export const colors = [
+  { name: 'אדום', range: 'ציון 7.5 ומעלה', class: 'red' },
+  { name: 'כתום', range: 'ציון בין 6 ל - 7.5', class: 'orange' },
+  { name: 'צהוב', range: 'ציון בין 4.5 ל - 6', class: 'yellow' },
+  { name: 'ירוק', range: 'ציון עד 4.5', class: 'green' },
 ];

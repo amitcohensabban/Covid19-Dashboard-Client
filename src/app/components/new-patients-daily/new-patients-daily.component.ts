@@ -16,4 +16,7 @@ export class NewPatientsDailyComponent implements OnInit {
     chart.setOption(this.chartOption);
 
   }
+
+
+  
 }

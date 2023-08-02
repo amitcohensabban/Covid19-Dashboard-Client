@@ -22,6 +22,7 @@ import { SelectComponent } from './components/select/select.component';
 import { SearchComponent } from './components/search/search.component';
 import { GraphComponent } from './components/graph/graph.component';
 import { NewPatientsDailyComponent } from './components/new-patients-daily/new-patients-daily.component';
+import { GradesColorsComponent } from './components/grades-colors/grades-colors.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +43,8 @@ import { NewPatientsDailyComponent } from './components/new-patients-daily/new-p
     SelectComponent,
     SearchComponent,
     GraphComponent,
-    NewPatientsDailyComponent
+    NewPatientsDailyComponent,
+    GradesColorsComponent
   ],
   imports: [
     BrowserModule,

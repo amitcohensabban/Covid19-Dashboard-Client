@@ -1,0 +1,39 @@
+.little-container-text-and-color {
+  width: fit-content;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+}
+.flex-cloumn-color {
+  display: flex;
+  flex-direction: column;
+}
+.little-text-color {
+  font-size: 11px;
+  color: gray;
+  font-weight: 400;
+}
+.squre {
+  max-width: 22px;
+  width: 2vw;
+  height: 22px;
+  margin-right: 5px;
+  margin-left: 5px;
+  border-radius: 2px;
+}
+.red {
+  background-color: #fa9e8f;
+}
+
+.orange {
+  background-color: #f2c580;
+}
+
+.yellow {
+  background-color: #fcfc70;
+}
+
+.green {
+  background-color: #b8de92;
+}

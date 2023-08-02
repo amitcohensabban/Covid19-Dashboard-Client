@@ -6,11 +6,11 @@ table {
   border-spacing: 0;
   width: 100%;
 }
-th{
+th {
   font-weight: 400;
   padding: 15px;
 }
-tr td {
+tr {
   height: 50px;
   border-bottom: 1px solid #daeaee;
 }
@@ -43,4 +43,19 @@ tr {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   height: 50px;
+}
+.green-bg {
+  background-color: #b8de92;
+}
+
+.yellow-bg {
+  background-color: #fcfc70;
+}
+
+.orange-bg {
+  background-color: #f2c580;
+}
+
+.red-bg {
+  background-color: #fa9e8f;
 }

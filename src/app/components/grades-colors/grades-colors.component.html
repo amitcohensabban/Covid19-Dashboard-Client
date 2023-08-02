@@ -1,0 +1,11 @@
+
+<div  *ngFor="let color of colors" class="little-container-text-and-color" >
+  <div *ngIf="this.graphName == 'lights'" class="flex-cloumn-color">
+    <div class="text-color">{{ color.name }}</div>
+    <div class="little-text-color">{{ color.range }}</div>
+  </div>
+  <div
+    *ngIf="this.graphName == 'lights'"
+    class="squre {{ color.class }}"
+  ></div>
+</div>

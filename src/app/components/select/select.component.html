@@ -1,6 +1,9 @@
 <div class="filters-dropdown-container">
   <div class="filters-dropdown-button" (click)="toggleFilteringDropdown()">
-    <span class="filters-dropdown-label">{{ selectedValues }}</span>
+    <span *ngIf="tableName==='bedOccupancyTable'" class="filters-dropdown-label">   {{ selectedCheckBoxesLength }} בתי חולים\מוסדות נבחרו</span>
+    <span *ngIf="tableName==='verifiedPatientsTable'" class="filters-dropdown-label">   {{ selectedCheckBoxesLength }} מדינות  נבחרו</span>
+    <span *ngIf="tableName==='trafficLightsPlanTable'" class="filters-dropdown-label">  כלל הישובים </span>
+
     <div
       class="dropdown-arrow"
       [ngClass]="isFilteringOptionOpen ? 'up' : 'down'"

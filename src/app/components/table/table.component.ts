@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges  } from '@angular/core';
 import { tables } from 'src/app/data/app.anchorList';
 import { FilterService } from 'src/app/services/filter.service';
 @Component({
@@ -12,18 +12,18 @@ export class TableComponent implements OnInit {
   filteredTableData!: any;
   tableNumbers!: any[];
   counter: number = 0;
+  constructor(private filterService: FilterService) {}
+
   ngOnInit(): void {
     this.tableNumbers = tables;
     console.log(this.tableName);
+console.log(this.tableData);
 
     this.filterService.setInitialData(this.tableData, this.tableName);
     this.filterService
       .getFilteredDataObservable(this.tableName)
       .subscribe((filteredData) => {
         this.filteredTableData = filteredData;
-        // console.log(this.filteredTableData);
-        // console.log(this.tableData);
       });
   }
-  constructor(private filterService: FilterService) {}
 }
