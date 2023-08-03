@@ -1,11 +1,11 @@
-  <div *ngIf="filteredTableData[0]?.hospitalName === 'הדסה עין כרם'" class="table-container rtl-scroll">
+  <div *ngIf="tableName === 'bedOccupancyTable'" class="table-container rtl-scroll">
 
     <table >
       <thead class="header-table">
         <tr>
-          <th>בית חלים</th>
-          <th>תפוסה כללית</th>
-          <th>תפוסה מחלקה פנימית</th>
+          <th (click)="sortTable('hospitalName') ">בית חלים</th>
+          <th (click)="sortTable('generalOccupancy')">תפוסה כללית</th>
+          <th (click)="sortTable('internalMedicineOccupancy')">תפוסה מחלקה פנימית</th>
         </tr>
       </thead>
       <tbody class="table-body">
@@ -19,15 +19,15 @@
 
   </div>
 
-  <div *ngIf="filteredTableData[0]?.countryName === 'ארצות הברית'" class="table-container rtl-scroll">
+  <div *ngIf="tableName === 'verifiedPatientsTable'" class="table-container rtl-scroll">
     <table >
       <thead class="header-table">
         <tr>
-          <th>מדינה</th>
-          <th>נכנסים לישראל</th>
-          <th>אזרחים מאומתים</th>
-          <th>זרים מאומתים</th>
-          <th>מאומתים מהנכנסים</th>
+          <th (click)="sortTable('countryName') ">מדינה</th>
+          <th (click)="sortTable('enteringIsrael') ">נכנסים לישראל</th>
+          <th (click)="sortTable('verifiedCitizens') ">אזרחים מאומתים</th>
+          <th (click)="sortTable('verifiedForeigners') ">זרים מאומתים</th>
+          <th (click)="sortTable('verifiedByTheIncoming') ">מאומתים מהנכנסים</th>
         </tr>
       </thead>
       <tbody class="table-body">
@@ -42,16 +42,16 @@
     </table>
   </div>
 
-  <div *ngIf="filteredTableData[0]?.city === 'אור יהודה'" class="table-container rtl-scroll">
+  <div *ngIf="tableName === 'trafficLightsPlanTable'" class="table-container rtl-scroll">
     <table >
       <thead class="header-table">
         <tr>
-          <th>יישוב</th>
-          <th>ציון</th>
-          <th>חולים חדשים </th>
-          <th>הבדיקות החיוביות</th>
-          <th>שיעור שינוי מאומתים</th>
-          <th>חולים פעילים</th>
+          <th (click)="sortTable('city') ">יישוב</th>
+          <th (click)="sortTable('grade') ">ציון</th>
+          <th (click)="sortTable('newPatients') ">חולים חדשים </th>
+          <th (click)="sortTable('positivePatients') ">הבדיקות החיוביות</th>
+          <th (click)="sortTable('rateOfChange') ">שיעור שינוי מאומתים</th>
+          <th (click)="sortTable('activePatients') ">חולים פעילים</th>
         </tr>
       </thead>
       <tbody class="table-body">
