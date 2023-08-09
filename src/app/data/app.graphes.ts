@@ -1,40 +1,36 @@
-export const categories = (function () {
-  let now = new Date();
+export function generateRandomData(numDays: number) {
   let res = [];
-  let len = 10;
-  while (len--) {
-    res.unshift(now.toLocaleTimeString().replace(/^\D*/, ''));
-    now = new Date(+now - 2000);
+  for (let i = 0; i < numDays; i++) {
+    res.push(Math.round(Math.random() * 100));
   }
   return res;
-})();
+}
+export function calculateRollingAverage(
+  data: number[],
+  decimalPlaces: number
+): number[] {
+  const rollingAverages = [];
 
-export const categories2 = (function () {
-  let res = [];
-  let len = 10;
-  while (len--) {
-    res.push('');
+  for (let i = 0; i < data.length; i++) {
+    let sum = 0;
+    let count = 0;
+    for (let j = i - 6; j <= i; j++) {
+      if (j >= 0) {
+        sum += data[j];
+        count++;
+      }
+    }
+    const average = count === 0 ? 0 : sum / count;
+    rollingAverages.push(Number(average.toFixed(decimalPlaces)));
   }
-  return res;
-})();
 
-export const data: number[] = (function () {
-  let res = [];
-  let len = 10;
-  while (len--) {
-    res.push(Math.round(Math.random() * 1000));
-  }
-  return res;
-})();
-export const data2: number[] = (function () {
-  let res = [];
-  let len = 0;
-  while (len < 10) {
-    res.push(+(Math.random() * 10 + 5).toFixed(1));
-    len++;
-  }
-  return res;
-})();
+  return rollingAverages;
+}
+
+export const data30: number[] = generateRandomData(30);
+export const data90: number[] = generateRandomData(90);
+export const data180: number[] = generateRandomData(180);
+export const data360: number[] = generateRandomData(360);
 
 export const option = {
   tooltip: {
@@ -42,7 +38,7 @@ export const option = {
     axisPointer: {
       type: 'line',
       label: {
-        backgroundColor: '#283b56',
+        backgroundColor: '#FF0000',
       },
     },
   },
@@ -55,21 +51,19 @@ export const option = {
   xAxis: [
     {
       type: 'category',
-      boundaryGap: true,
-      data: null,
+      boundaryGap: false,
     },
     {
       type: 'category',
-      boundaryGap: true,
-      data: categories2,
+      boundaryGap: false,
     },
   ],
   yAxis: [
     {
       type: 'value',
       scale: true,
-      name: 'Price',
-      max: 30,
+      name: 'Patients',
+      max: 120,
       min: 0,
       boundaryGap: [0.2, 0.2],
     },
@@ -77,26 +71,26 @@ export const option = {
       type: 'value',
       scale: true,
       name: '',
-      max: 1200,
       min: 0,
       boundaryGap: [0.2, 0.2],
       axisLabel: {
-        show: false, // Hide the y-axis labels on the right side
+        show: false,
       },
     },
   ],
   series: [
     {
-      name: 'Dynamic Bar',
+      name: 'מאומתים ',
       type: 'bar',
       xAxisIndex: 1,
       yAxisIndex: 1,
-      data: data,
-    },
-    {
-      name: 'Dynamic Line',
-      type: 'line',
-      data: data2,
+      itemStyle: {
+        color: '#50CBFD',
+      },
+      barWidth: '60%',
+      barGap: '70%',
+      barCategoryGap: '20%',
+      data: data30,
     },
   ],
 };
