@@ -26,7 +26,6 @@ export function calculateRollingAverage(
 
   return rollingAverages;
 }
-
 export const data30: number[] = generateRandomData(30);
 export const data90: number[] = generateRandomData(90);
 export const data180: number[] = generateRandomData(180);
@@ -94,3 +93,96 @@ export const option = {
     },
   ],
 };
+
+
+
+
+//// second graph
+export const optionTwo={
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      type: 'cross',
+      label: {
+        backgroundColor: '#6a7985'
+      }
+    }
+  },
+  toolbox: {
+
+  },
+  grid: {
+    left: '3%',
+    right: '4%',
+    bottom: '3%',
+    containLabel: true
+  },
+  xAxis: [
+    {
+      type: 'category',
+      boundaryGap: false,
+    }
+  ],
+  yAxis: [
+    {
+      type: 'value'
+    }
+  ],
+  series: [
+    {
+      name: 'Video Ads',
+      type: 'line',
+      stack: 'Total',
+      areaStyle: {},
+      emphasis: {
+        focus: 'series'
+      },
+      data: [150, 232, 201, 154, 190, 330, 410]
+    },
+    {
+      name: 'Direct',
+      type: 'line',
+      stack: 'Total',
+      areaStyle: {},
+      emphasis: {
+        focus: 'series'
+      },
+      data: [320, 332, 301, 334, 390, 330, 320]
+    },
+    {
+      name: 'Search Engine',
+      type: 'line',
+      stack: 'Total',
+      label: {
+        show: true,
+        position: 'top'
+      },
+      areaStyle: {},
+      emphasis: {
+        focus: 'series'
+      },
+      data: [820, 932, 901, 934, 1290, 1330, 1320]
+    }
+  ]
+}
+
+
+export function generateFakeData(numberOfDays: number): {
+  mildData: number[];
+  moderateData: number[];
+  severeData: number[];
+} {
+  const mildData = generateRandomData2(numberOfDays);
+  const moderateData = generateRandomData2(numberOfDays);
+  const severeData = generateRandomData2(numberOfDays);
+
+  return { mildData, moderateData, severeData };
+}
+
+export function generateRandomData2(numberOfDays: number): number[] {
+  const data = [];
+  for (let i = 0; i < numberOfDays; i++) {
+    data.push(Math.floor(Math.random() * 100) );
+  }
+  return data;
+}

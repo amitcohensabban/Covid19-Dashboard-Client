@@ -1,87 +1,111 @@
 import { Component, OnInit } from '@angular/core';
 import * as echarts from 'echarts';
+import { optionTwo, generateFakeData } from 'src/app/data/app.graphes';
+
 @Component({
   selector: 'app-graph',
   templateUrl: './graph.component.html',
-  styleUrls: ['./graph.component.scss']
+  styleUrls: ['./graph.component.scss'],
 })
-export class GraphComponent implements OnInit{
-ngOnInit(): void {
-var chartDom = document.getElementById('main');
-var myChart = echarts.init(chartDom);
-var option;
+export class GraphComponent implements OnInit {
+  selectedNumberOfDays: number = 30;
+  myChart: echarts.ECharts | null = null;
+  isFilteringOptionOpen = false;
+  timePeriods = [
+    { value: 30, label: 'Last 30 Days' },
+    { value: 90, label: 'Last 90 Days' },
+    { value: 180, label: 'Last 180 Days' },
+    { value: 360, label: 'Last 360 Days' },
+  ];
 
-option = {
+  ngOnInit(): void {
+    const chartDom = document.getElementById('main');
+    this.myChart = echarts.init(chartDom);
 
-  tooltip: {
-    trigger: 'axis',
-    axisPointer: {
-      type: 'cross',
-      label: {
-        backgroundColor: '#6a7985'
-      }
+    this.updateGraph();
+  }
+
+  updateGraph(): void {
+    if (this.myChart) {
+      const startDate = new Date();
+      startDate.setDate(startDate.getDate() - this.selectedNumberOfDays + 1);
+
+      const days = Array.from({ length: this.selectedNumberOfDays }, (_, i) => {
+        const currentDate = new Date(startDate);
+        currentDate.setDate(currentDate.getDate() + i);
+        return currentDate.toLocaleDateString();
+      });
+
+      const { mildData, moderateData, severeData } = generateFakeData(
+        this.selectedNumberOfDays
+      );
+
+      const option = {
+        tooltip: optionTwo.tooltip,
+        toolbox: optionTwo.toolbox,
+        grid: optionTwo.grid,
+        xAxis: [
+          {
+            type: 'category',
+            boundaryGap: false,
+            data: days,
+          },
+        ],
+        yAxis: [
+          {
+            type: 'value',
+            min: 0,
+            max: 250,
+            interval: 50,
+          },
+        ],
+        series: [
+          {
+            name: 'קל',
+            type: 'line',
+            stack: 'Total',
+            areaStyle: {},
+            emphasis: { focus: 'series' },
+            data: mildData,
+            itemStyle: {
+              color: '#4CA5A5', 
+            },
+          },
+          {
+            name: 'בינוני',
+            type: 'line',
+            stack: 'Total',
+            areaStyle: {},
+            emphasis: { focus: 'series' },
+            data: moderateData,
+            itemStyle: {
+              color: '#B6CA51',
+            },
+          },
+          {
+            name: 'קשה',
+            type: 'line',
+            stack: 'Total',
+            areaStyle: {},
+            emphasis: { focus: 'series' },
+            data: severeData,
+            itemStyle: {
+              color: '#85DBFE',
+            },
+          },
+        ],
+      };
+
+      this.myChart.setOption(option);
     }
-  },
-  toolbox: {
+  }
 
-  },
-  grid: {
-    left: '3%',
-    right: '4%',
-    bottom: '3%',
-    containLabel: true
-  },
-  xAxis: [
-    {
-      type: 'category',
-      boundaryGap: false,
-      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-    }
-  ],
-  yAxis: [
-    {
-      type: 'value'
-    }
-  ],
-  series: [
-    {
-      name: 'Video Ads',
-      type: 'line',
-      stack: 'Total',
-      areaStyle: {},
-      emphasis: {
-        focus: 'series'
-      },
-      data: [150, 232, 201, 154, 190, 330, 410]
-    },
-    {
-      name: 'Direct',
-      type: 'line',
-      stack: 'Total',
-      areaStyle: {},
-      emphasis: {
-        focus: 'series'
-      },
-      data: [320, 332, 301, 334, 390, 330, 320]
-    },
-    {
-      name: 'Search Engine',
-      type: 'line',
-      stack: 'Total',
-      label: {
-        show: true,
-        position: 'top'
-      },
-      areaStyle: {},
-      emphasis: {
-        focus: 'series'
-      },
-      data: [820, 932, 901, 934, 1290, 1330, 1320]
-    }
-  ]
-};
+  onSelectTimePeriod(): void {
+    this.updateGraph();
+    this.toggleFilteringDropdown();
+  }
 
-option && myChart.setOption(option);
-
-}
+  toggleFilteringDropdown() {
+    this.isFilteringOptionOpen = !this.isFilteringOptionOpen;
+  }
 }
