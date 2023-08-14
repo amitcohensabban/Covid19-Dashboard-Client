@@ -29,14 +29,14 @@ export const numberOfCards: Sections[] = [
     labels: ['empty', 'empty', 'empty'],
   },
   { title: 'נפטרים', value: 2, labels: ['empty', 'empty'] },
-  { title: 'בדיקות', value: 3, labels: ['empty', 'empty', 'empty'] },
-  { title: 'תחקורים נוספים', value: 3, labels: ['empty', 'graph', 'empty'] },
+  { title: 'בדיקות', value: 3, labels: ['empty', 'empty', 'graph3'] },
+  { title: 'תחקורים נוספים', value: 3, labels: ['empty', 'empty', 'empty'] },
   {
     title: 'תחלואה חוזרת ומחלימים',
     value: 3,
     labels: ['empty', 'empty', 'empty'],
   },
-  { title: 'התחסנות האוכלוסיה', value: 3, labels: ['empty', 'empty', 'graph'] },
+  { title: 'התחסנות האוכלוסיה', value: 3, labels: ['empty', 'empty', 'empty'] },
   { title: 'רמזור בישובים', value: 2, labels: ['empty', 'table'] },
 ];
 

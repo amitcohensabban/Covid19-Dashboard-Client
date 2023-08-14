@@ -1,10 +1,16 @@
 <div class="filters-dropdown-container">
-  <div class="filters-dropdown-button"> {{selectedNumberOfDays}}
+  <div class="filters-dropdown-button">
+    <ng-container [ngSwitch]="selectedNumberOfDays">
+      <div *ngSwitchCase="30">חודש אחרון</div>
+      <div *ngSwitchCase="90">3 חודשים</div>
+      <div *ngSwitchCase="180">6 חודשים</div>
+      <div *ngSwitchCase="360">שנה</div>
+    </ng-container>
+
     <div
       *ngIf="isFilteringOptionOpen"
       class="filters-dropdown-items-container filters-dropdown-options-container"
     >
-
       <label *ngFor="let period of timePeriods" class="radio-button">
         <input
           type="radio"
@@ -13,7 +19,12 @@
           [value]="period.value"
           (change)="onSelectTimePeriod()"
         />
-        {{ period.label }}
+        <ng-container [ngSwitch]="period.value">
+          <div style="display: inline" *ngSwitchCase="30">חודש אחרון</div>
+          <div style="display: inline" *ngSwitchCase="90">3 חודשים</div>
+          <div style="display: inline" *ngSwitchCase="180">6 חודשים</div>
+          <div style="display: inline" *ngSwitchCase="360">שנה</div>
+        </ng-container>
       </label>
     </div>
     <div
@@ -43,14 +54,3 @@
 </div>
 
 <div id="main"></div>
-
-
-
-
-
-
-
-
-
-
-

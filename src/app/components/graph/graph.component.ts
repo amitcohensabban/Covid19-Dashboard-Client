@@ -58,19 +58,29 @@ export class GraphComponent implements OnInit {
             max: 250,
             interval: 50,
           },
-        ],
+        ],legend: {
+          data: ['קשה', 'בינוני', 'קל'],
+          textStyle: {
+            color: 'black',
+          },
+          itemWidth: 10,
+          itemHeight: 10,
+          icon: 'circle',  
+        },
+
         series: [
           {
-            name: 'קל',
+            name: 'קשה',
             type: 'line',
             stack: 'Total',
             areaStyle: {},
             emphasis: { focus: 'series' },
-            data: mildData,
+            data: severeData,
             itemStyle: {
-              color: '#4CA5A5', 
+              color: '#85DBFE',
             },
           },
+
           {
             name: 'בינוני',
             type: 'line',
@@ -83,14 +93,14 @@ export class GraphComponent implements OnInit {
             },
           },
           {
-            name: 'קשה',
+            name: 'קל',
             type: 'line',
             stack: 'Total',
             areaStyle: {},
             emphasis: { focus: 'series' },
-            data: severeData,
+            data: mildData,
             itemStyle: {
-              color: '#85DBFE',
+              color: '#4CA5A5',
             },
           },
         ],

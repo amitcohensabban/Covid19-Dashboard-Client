@@ -23,6 +23,7 @@ import { SearchComponent } from './components/search/search.component';
 import { GraphComponent } from './components/graph/graph.component';
 import { NewPatientsDailyComponent } from './components/new-patients-daily/new-patients-daily.component';
 import { GradesColorsComponent } from './components/grades-colors/grades-colors.component';
+import { TestsByAgeGroupComponent } from './components/tests-by-age-group/tests-by-age-group.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +45,8 @@ import { GradesColorsComponent } from './components/grades-colors/grades-colors.
     SearchComponent,
     GraphComponent,
     NewPatientsDailyComponent,
-    GradesColorsComponent
+    GradesColorsComponent,
+    TestsByAgeGroupComponent
   ],
   imports: [
     BrowserModule,

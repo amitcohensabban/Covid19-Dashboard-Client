@@ -13,5 +13,8 @@
 <app-graph *ngIf="card == 'graph'"></app-graph>
 
 <app-table-header *ngIf="card == 'graph2'" [graphTitle]="'מאומתים חדשים יומי'"></app-table-header>
-
 <app-new-patients-daily *ngIf="card == 'graph2'"></app-new-patients-daily>
+
+
+<app-table-header *ngIf="card == 'graph3'" [graphTitle]="'מספר נבדקים לפי קבוצות גיל'"></app-table-header>
+<app-tests-by-age-group *ngIf="card == 'graph3'"></app-tests-by-age-group>

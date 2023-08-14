@@ -94,39 +94,34 @@ export const option = {
   ],
 };
 
-
-
-
 //// second graph
-export const optionTwo={
+export const optionTwo = {
   tooltip: {
     trigger: 'axis',
     axisPointer: {
       type: 'cross',
       label: {
-        backgroundColor: '#6a7985'
-      }
-    }
+        backgroundColor: '#6a7985',
+      },
+    },
   },
-  toolbox: {
-
-  },
+  toolbox: {},
   grid: {
     left: '3%',
     right: '4%',
     bottom: '3%',
-    containLabel: true
+    containLabel: true,
   },
   xAxis: [
     {
       type: 'category',
       boundaryGap: false,
-    }
+    },
   ],
   yAxis: [
     {
-      type: 'value'
-    }
+      type: 'value',
+    },
   ],
   series: [
     {
@@ -135,9 +130,9 @@ export const optionTwo={
       stack: 'Total',
       areaStyle: {},
       emphasis: {
-        focus: 'series'
+        focus: 'series',
       },
-      data: [150, 232, 201, 154, 190, 330, 410]
+      data: [150, 232, 201, 154, 190, 330, 410],
     },
     {
       name: 'Direct',
@@ -145,9 +140,9 @@ export const optionTwo={
       stack: 'Total',
       areaStyle: {},
       emphasis: {
-        focus: 'series'
+        focus: 'series',
       },
-      data: [320, 332, 301, 334, 390, 330, 320]
+      data: [320, 332, 301, 334, 390, 330, 320],
     },
     {
       name: 'Search Engine',
@@ -155,17 +150,16 @@ export const optionTwo={
       stack: 'Total',
       label: {
         show: true,
-        position: 'top'
+        position: 'top',
       },
       areaStyle: {},
       emphasis: {
-        focus: 'series'
+        focus: 'series',
       },
-      data: [820, 932, 901, 934, 1290, 1330, 1320]
-    }
-  ]
-}
-
+      data: [820, 932, 901, 934, 1290, 1330, 1320],
+    },
+  ],
+};
 
 export function generateFakeData(numberOfDays: number): {
   mildData: number[];
@@ -182,7 +176,112 @@ export function generateFakeData(numberOfDays: number): {
 export function generateRandomData2(numberOfDays: number): number[] {
   const data = [];
   for (let i = 0; i < numberOfDays; i++) {
-    data.push(Math.floor(Math.random() * 100) );
+    data.push(Math.floor(Math.random() * 100));
   }
+  return data;
+}
+
+export const option3 = {
+  title: {
+    text: '',
+  },
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      type: 'shadow',
+    },
+  },
+  legend: {},
+  grid: {
+    left: '3%',
+    right: '4%',
+    bottom: '3%',
+    containLabel: true,
+  },
+  xAxis: {
+    type: 'value',
+    boundaryGap: [0, 0.01],
+    name: 'Number of Tests',
+  },
+  yAxis: {
+    type: 'category',
+    data: [
+      '0-9',
+      '10-19',
+      '20-29',
+      '30-39',
+      '40-49',
+      '50-49',
+      '40-59',
+      '60-69',
+      '70-79',
+      '80-89',
+      '90+',
+    ],
+    axisLabel: {
+      interval: 0,
+    },
+  },
+  series: [
+    {
+      name: 'בדיקות חיוביות',
+      type: 'bar',
+      stack: 'total',
+      label: {
+        show: false,
+      },
+      emphasis: {
+        focus: 'series',
+      },
+      itemStyle: {
+        color: '#008A8A',
+      },
+      data: [],
+    },
+    {
+      name: 'בדיקות',
+      type: 'bar',
+      stack: 'total',
+      label: {
+        show: false,
+      },
+      emphasis: {
+        focus: 'series',
+      },
+      itemStyle: {
+        color: '#50CBFD',
+      },
+      data: [],
+    },
+  ],
+};
+
+export function generateFakeDataForTests(
+  days: number,
+  numAgeGroups: number
+): { total: number[][]; positive: number[][] } {
+  const data = {
+    total: [] as number[][],
+    positive: [] as number[][],
+  };
+
+  for (let i = 0; i < numAgeGroups; i++) {
+    const ageGroupTotalData: number[] = [];
+    const ageGroupPositiveData: number[] = [];
+
+    for (let j = 0; j < days; j++) {
+      const totalTests = Math.floor(Math.random() * 500);
+      ageGroupTotalData.push(totalTests);
+
+      const positiveTests = Math.floor(
+        totalTests * (0.7 + Math.random() * 0.2)
+      );
+      ageGroupPositiveData.push(positiveTests);
+    }
+
+    data.total.push(ageGroupTotalData);
+    data.positive.push(ageGroupPositiveData);
+  }
+
   return data;
 }
