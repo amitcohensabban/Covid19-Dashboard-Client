@@ -212,3 +212,14 @@ export const lastSevenDays = [
     ],
   },
 ];
+export const sideNavData = [
+  { value: 'שירותים רפואיים בישראל' },
+  { value: 'גדילה והנקה בילדים' },
+  { value: 'איכות במערכת הבריאות' },
+  { value: 'קורונה' },
+];
+export const sideNavData2 = [
+  { value: 'אודות' },
+  { value: 'הצהרת נגישוץ' },
+  { value: 'תנאי שימוש' },
+];

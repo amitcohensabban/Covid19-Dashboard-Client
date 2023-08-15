@@ -6,7 +6,7 @@ import { Component,Renderer2 } from '@angular/core';
 })
 export class HeaderComponent {
   darkMode = false;
-
+isNavOpen:boolean = false;
   constructor(private renderer: Renderer2) {}
 
   toggleDarkMode() {
@@ -16,4 +16,8 @@ export class HeaderComponent {
     } else {
       this.renderer.removeClass(document.body, 'dark-mode');
     }
-  }}
+  }
+  closeSideNav() {
+    this.isNavOpen = false;
+  }
+}

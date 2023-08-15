@@ -24,6 +24,7 @@ import { GraphComponent } from './components/graph/graph.component';
 import { NewPatientsDailyComponent } from './components/new-patients-daily/new-patients-daily.component';
 import { GradesColorsComponent } from './components/grades-colors/grades-colors.component';
 import { TestsByAgeGroupComponent } from './components/tests-by-age-group/tests-by-age-group.component';
+import { SideNavComponent } from './components/side-nav/side-nav.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +47,9 @@ import { TestsByAgeGroupComponent } from './components/tests-by-age-group/tests-
     GraphComponent,
     NewPatientsDailyComponent,
     GradesColorsComponent,
-    TestsByAgeGroupComponent
+    TestsByAgeGroupComponent,
+    SideNavComponent,
+    
   ],
   imports: [
     BrowserModule,

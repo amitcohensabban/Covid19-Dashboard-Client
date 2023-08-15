@@ -63,3 +63,20 @@
     cursor: pointer;
   }
 }
+#sidemenu {
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  display: none;
+  inset-inline-start: -100%; /* Initially off-screen */
+  transition: inset-inline-start 0.25s, background-color 0.25s;
+  background-color: #00000080;
+  z-index: 999999999;
+}
+
+#sidemenu.open {
+  display: block;
+  inset-inline-start: 0;
+  background-color: #00000080;
+}

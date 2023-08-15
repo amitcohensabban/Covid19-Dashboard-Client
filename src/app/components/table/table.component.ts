@@ -33,16 +33,13 @@ export class TableComponent implements OnInit {
   }
 
   sortTable(columnName: string) {
-    // If clicking the same column, toggle the sorting order
     if (this.sortedColumn === columnName) {
       this.sortAscending = !this.sortAscending;
     } else {
-      // If clicking a different column, set the new column and reset the sorting order
       this.sortedColumn = columnName;
       this.sortAscending = true;
     }
 
-    // Sort the table data based on the selected column and order
     this.filteredTableData.sort((a: any, b: any) => {
       if (this.sortAscending) {
         return a[columnName] > b[columnName] ? 1 : -1;

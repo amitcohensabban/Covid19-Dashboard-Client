@@ -1,0 +1,77 @@
+#sidenavcontent {
+  width: 275px;
+  inset-inline-start: var(--sidenav-closed-right);
+  position: absolute;
+  transition: 0.5s;
+  background: white;
+  box-shadow: 0 -10px 50px #b1b1b180;
+  overflow-y: auto;
+  height: 100%;
+  border-top: 1px solid #d8dde0;
+}
+.menu {
+  padding-inline-end: 20px;
+}
+#sidenavcontent ul {
+  padding-inline-start: 20px;
+  list-style-type: none;
+}
+
+.main-menu {
+  margin-bottom: 35px;
+  margin-inline-end: 40px;
+}
+.home {
+  font-size: 0.875rem;
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+  background: none;
+  padding-inline-start: 10px;
+  padding-inline-end: 0;
+  cursor: pointer;
+}
+.menu-title-text {
+  padding-inline-start: 7px;
+  z-index: 1;
+  position: relative;
+    top: -2px;
+    right: 10px;
+    font-weight: bold;
+}
+.close {
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 999;
+  padding: 0 6px;
+  margin-inline-start: 10px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  background: none;
+  border: none;
+  position: absolute;
+  top: -4px;
+  left: 50px;
+}
+.links {
+  border-top: solid 1px #d8dde0;
+  padding-inline-start: 0;
+  padding-top: 7px;
+  margin-top: 7px;
+}
+.item {
+  font-weight: 700;
+  position: relative;
+  padding-inline-start: 14px;
+  min-height: 40px;
+  margin-top: 2.5px;
+  margin-bottom: 2.5px;
+  cursor: pointer;
+}
+.covid{
+  background-color: #e0e0e0;
+    border-radius: 5px;
+}
