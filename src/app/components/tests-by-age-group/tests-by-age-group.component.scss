@@ -31,6 +31,11 @@
   text-align: start;
   font-size: 14px;
   font-family: inherit;
+  .time{
+    padding: 0.350rem;
+    line-height: 1;
+  }
+
 }
 .dropdown-arrow {
   background-size: cover;
@@ -55,7 +60,7 @@
   top: 28px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
   background: var(--card-background-color);
   padding: 0 0 2rem;
   color: var(--select-outline-basic-text-color);
@@ -72,4 +77,30 @@
 
 .dropdown-arrow.up {
   transform: rotate(180deg);
+}
+.dropdown-buttons {
+  position: absolute;
+  z-index: 90;
+  bottom: 0;
+  width: 100%;
+  inset-inline-start: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  border-radius: 0 0 4px 4px;
+  overflow: hidden;
+  height: 2rem;
+}
+
+.dropdown-buttons button {
+  color: var(--text-basic-color);
+  flex: 1;
+  background: var(--banner-background-color);
+  padding: 0;
+  border: none;
+  font-size: inherit;
+  cursor: pointer;}
+h4{
+  margin: 0;
+  font-size: 14px;
 }

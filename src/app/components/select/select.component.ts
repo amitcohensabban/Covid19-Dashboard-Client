@@ -18,7 +18,6 @@ export class SelectComponent implements OnInit {
   previousSelection: any[] = [];
   selectedCheckBoxesLength: number = 0;
   InnerTitle = '';
-
   constructor(private filterService: FilterService) {}
 
   ngOnInit(): void {
@@ -26,8 +25,6 @@ export class SelectComponent implements OnInit {
     this.getSelectedValues();
     this.processArrayData(this.tableData);
     this.setInnerTitle();
-    console.log(this.tableName);
-
   }
   handleSearchComponentClick(optionsVisible: boolean) {
     this.isSearchComponentClicked = !this.isSearchComponentClicked;
@@ -44,22 +41,18 @@ export class SelectComponent implements OnInit {
     }
     this.isSearchComponentClicked = false;
   }
-
   closeFilteringDropdown() {
     this.isFilteringOptionOpen = false;
-
     this.isSearchComponentClicked = false;
     this.isApplyClicked = false;
   }
   cloneFilterOptions() {
     this.previousSelection = JSON.parse(JSON.stringify(this.filterOptions));
   }
-
   cancelSelection() {
     this.filterOptions = JSON.parse(JSON.stringify(this.previousSelection));
     this.closeFilteringDropdown();
   }
-
   applySelection() {
     if (this.isSearchComponentClicked) {
       this.isSearchComponentClicked = false;
@@ -72,9 +65,6 @@ export class SelectComponent implements OnInit {
   }
   getSelectedValues() {
     const selectedValues = [];
-
-    console.log(this.filterOptions);
-
     for (const section of this.filterOptions) {
       if (section.type === 'checkbox') {
         const selectedOptions = section.options.filter(
@@ -95,10 +85,8 @@ export class SelectComponent implements OnInit {
         }
       }
     }
-
     this.selectedValues = selectedValues.join(', ');
   }
-
   processArrayData(arr: any[]): string[] {
     if (arr.length === 10) {
       this.searchOptions = arr.map((item) => item.hospitalName);

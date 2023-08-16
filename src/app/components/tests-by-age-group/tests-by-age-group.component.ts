@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import * as echarts from 'echarts';
-
 import { option3, generateFakeDataForTests } from 'src/app/data/app.graphes';
 @Component({
   selector: 'app-tests-by-age-group',
@@ -22,18 +21,12 @@ export class TestsByAgeGroupComponent implements OnInit {
   ngOnInit(): void {
     this.option = option3;
     this.myChart = echarts.init(document.getElementById('chartContainer'));
-
-    this.updateChartData();
+    this.updateGraph();
   }
   toggleFilteringDropdown() {
     this.isFilteringOptionOpen = !this.isFilteringOptionOpen;
   }
-  onSelectTimePeriod(): void {
-    this.toggleFilteringDropdown();
-    this.updateChartData();
-  }
-
-  updateChartData(): void {
+  updateGraph(): void {
     const numAgeGroups = 11;
     const fakeData = generateFakeDataForTests(
       this.selectedTimePeriod,
@@ -54,4 +47,12 @@ export class TestsByAgeGroupComponent implements OnInit {
       this.myChart.setOption(this.option);
     }
   }
+  applySelection(){
+    this.updateGraph();
+    this.toggleFilteringDropdown();
+  }
+  cancelSelection(){
+    this.toggleFilteringDropdown();
+  }
+
 }

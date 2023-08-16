@@ -21,10 +21,8 @@ export class GraphComponent implements OnInit {
   ngOnInit(): void {
     const chartDom = document.getElementById('main');
     this.myChart = echarts.init(chartDom);
-
     this.updateGraph();
   }
-
   updateGraph(): void {
     if (this.myChart) {
       const startDate = new Date();
@@ -65,7 +63,7 @@ export class GraphComponent implements OnInit {
           },
           itemWidth: 10,
           itemHeight: 10,
-          icon: 'circle',  
+          icon: 'circle',
         },
 
         series: [
@@ -109,13 +107,14 @@ export class GraphComponent implements OnInit {
       this.myChart.setOption(option);
     }
   }
-
-  onSelectTimePeriod(): void {
+  toggleFilteringDropdown() {
+    this.isFilteringOptionOpen = !this.isFilteringOptionOpen;
+  }
+  applySelection(){
     this.updateGraph();
     this.toggleFilteringDropdown();
   }
-
-  toggleFilteringDropdown() {
-    this.isFilteringOptionOpen = !this.isFilteringOptionOpen;
+  cancelSelection(){
+    this.toggleFilteringDropdown();
   }
 }

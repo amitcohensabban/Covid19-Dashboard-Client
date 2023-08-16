@@ -24,10 +24,10 @@ export class NewPatientsDailyComponent implements OnInit {
   ngOnInit(): void {
     this.chart = echarts.init(document.getElementById('chart'));
     this.chartOption = option;
-    this.updateChartData();
+    this.updateGraph();
   }
 
-  updateChartData(): void {
+  updateGraph(): void {
     const data = generateRandomData(this.selectedTimePeriod);
     const rollingAverages = calculateRollingAverage(data, 1);
 
@@ -63,7 +63,6 @@ export class NewPatientsDailyComponent implements OnInit {
   getDataForTimePeriod(numDays: number): number[] {
     return generateRandomData(numDays);
   }
-
   generateDateLabels(numDays: number): string[] {
     const today = new Date();
     const dateLabels = [];
@@ -75,12 +74,6 @@ export class NewPatientsDailyComponent implements OnInit {
     }
     return dateLabels;
   }
-
-  onSelectTimePeriod(): void {
-    this.updateChartData();
-    this.toggleFilteringDropdown();
-  }
-
   generateEmptyCategories(numDays: number): string[] {
     const emptyCategories = [];
     for (let i = 0; i < numDays; i++) {
@@ -91,4 +84,15 @@ export class NewPatientsDailyComponent implements OnInit {
   toggleFilteringDropdown() {
     this.isFilteringOptionOpen = !this.isFilteringOptionOpen;
   }
+  applySelection(){
+    this.updateGraph();
+    this.toggleFilteringDropdown();
+
+
+  }
+  cancelSelection(){
+    this.toggleFilteringDropdown();
+
+  }
+
 }

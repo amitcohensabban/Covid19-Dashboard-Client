@@ -21,9 +21,6 @@ export class TableComponent implements OnInit {
 
   ngOnInit(): void {
     this.tableNumbers = tables;
-    console.log(this.tableName);
-    console.log(this.tableData);
-
     this.filterService.setInitialData(this.tableData, this.tableName);
     this.filterService
       .getFilteredDataObservable(this.tableName)

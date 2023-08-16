@@ -40,13 +40,16 @@ body{
   overflow: overlay;
   box-sizing: border-box;
   z-index: 999;
-  position: relative;
+  position: relative; 
   direction: rtl;
+
   font-family: "Open Sans Hebrew";
   font-weight: bold;
   background-color:var(--card-background-color);
 }
-
+.no-scroll{
+  overflow: hidden;
+}
 
 .dark-mode {
   --card-background-color: #374F60;
@@ -74,4 +77,20 @@ body{
   --btn-bg-color: #495b7b;
   --btn-border-color: #8394a0;
   --tree-grid-header-background-color: #2a3b47;
+}
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #999;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #666;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
 }

@@ -49,7 +49,7 @@ import { SideNavComponent } from './components/side-nav/side-nav.component';
     GradesColorsComponent,
     TestsByAgeGroupComponent,
     SideNavComponent,
-    
+
   ],
   imports: [
     BrowserModule,
