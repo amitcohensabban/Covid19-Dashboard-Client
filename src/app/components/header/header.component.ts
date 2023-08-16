@@ -19,5 +19,10 @@ isNavOpen:boolean = false;
   }
   closeSideNav() {
     this.isNavOpen = false;
+    document.body.classList.remove('no-scroll');
+  }
+  toggleSideNav(){
+    document.body.classList.add('no-scroll');
+    this.isNavOpen=!this.isNavOpen;
   }
 }

@@ -12,6 +12,9 @@
       background: none;
       border: none;
       padding: 0 6px;
+      :hover{
+        cursor: pointer;
+      }
     }
     flex: 0 0 auto;
     display: flex;
@@ -73,10 +76,14 @@
   transition: inset-inline-start 0.25s, background-color 0.25s;
   background-color: #00000080;
   z-index: 999999999;
+  transition: inset-inline-start 0.25s, background-color 0.25s; /* Keep this line */
+
 }
 
 #sidemenu.open {
   display: block;
   inset-inline-start: 0;
   background-color: #00000080;
+  transition: inset-inline-start 0.25s, background-color 0.25s; /* Keep this line */
+
 }
