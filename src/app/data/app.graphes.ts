@@ -92,6 +92,7 @@ export const option = {
       data: data30,
     },
   ],
+
 };
 
 //// second graph
@@ -159,6 +160,7 @@ export const optionTwo = {
       data: [820, 932, 901, 934, 1290, 1330, 1320],
     },
   ],
+
 };
 
 export function generateFakeData(numberOfDays: number): {
@@ -285,3 +287,9 @@ export function generateFakeDataForTests(
 
   return data;
 }
+export const timePeriods = [
+  { value: 30, label: 'Last 30 Days' },
+  { value: 90, label: 'Last 90 Days' },
+  { value: 180, label: 'Last 180 Days' },
+  { value: 360, label: 'Last 360 Days' },
+];

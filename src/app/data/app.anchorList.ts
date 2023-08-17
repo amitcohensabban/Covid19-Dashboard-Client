@@ -22,7 +22,7 @@ export const numberOfCards: Sections[] = [
     value: 3,
     labels: ['empty', 'empty', 'empty'],
   },
-  { title: 'תחלואה מחול', value: 3, labels: ['empty', 'empty', 'table'] },
+  { title: 'תחלואה מחול', value: 2, labels: ['empty', 'table'] },
   {
     title: 'השפעת התחסנות על התחלואה',
     value: 3,
@@ -37,7 +37,7 @@ export const numberOfCards: Sections[] = [
     labels: ['empty', 'empty', 'empty'],
   },
   { title: 'התחסנות האוכלוסיה', value: 3, labels: ['empty', 'empty', 'empty'] },
-  { title: 'רמזור בישובים', value: 2, labels: ['empty', 'table'] },
+  { title: 'רמזור בישובים', value: 1, labels: [ 'table'] },
 ];
 
 export const tables = [

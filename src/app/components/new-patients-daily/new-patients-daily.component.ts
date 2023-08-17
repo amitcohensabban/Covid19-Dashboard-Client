@@ -1,10 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { option } from 'src/app/data/app.graphes';
 import * as echarts from 'echarts';
-import {
-  generateRandomData,
-  calculateRollingAverage,
-} from 'src/app/data/app.graphes';
+import { generateRandomData, calculateRollingAverage,timePeriods} from 'src/app/data/app.graphes';
 @Component({
   selector: 'app-new-patients-daily',
   templateUrl: './new-patients-daily.component.html',
@@ -13,18 +10,21 @@ import {
 export class NewPatientsDailyComponent implements OnInit {
   chartOption: any;
   selectedTimePeriod: number = 30;
+  selectedNumberOfDaysTemp: number = 30;
   chart: any;
   isFilteringOptionOpen = false;
-  timePeriods = [
-    { value: 30, label: 'Last 30 Days' },
-    { value: 90, label: 'Last 90 Days' },
-    { value: 180, label: 'Last 180 Days' },
-    { value: 360, label: 'Last 360 Days' },
-  ];
+  timePeriods = timePeriods;
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    if (this.chart) {
+      this.chart.resize();
+    }
+  }
   ngOnInit(): void {
     this.chart = echarts.init(document.getElementById('chart'));
     this.chartOption = option;
     this.updateGraph();
+    this.chart.resize();
   }
 
   updateGraph(): void {
@@ -85,6 +85,7 @@ export class NewPatientsDailyComponent implements OnInit {
     this.isFilteringOptionOpen = !this.isFilteringOptionOpen;
   }
   applySelection(){
+    this.selectedTimePeriod = this.selectedNumberOfDaysTemp;
     this.updateGraph();
     this.toggleFilteringDropdown();
 

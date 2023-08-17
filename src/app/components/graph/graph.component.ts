@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import * as echarts from 'echarts';
-import { optionTwo, generateFakeData } from 'src/app/data/app.graphes';
+import {  optionTwo,  generateFakeData,  timePeriods,} from 'src/app/data/app.graphes';
 
 @Component({
   selector: 'app-graph',
@@ -9,19 +9,21 @@ import { optionTwo, generateFakeData } from 'src/app/data/app.graphes';
 })
 export class GraphComponent implements OnInit {
   selectedNumberOfDays: number = 30;
+  selectedNumberOfDaysTemp: number = 30;
   myChart: echarts.ECharts | null = null;
   isFilteringOptionOpen = false;
-  timePeriods = [
-    { value: 30, label: 'Last 30 Days' },
-    { value: 90, label: 'Last 90 Days' },
-    { value: 180, label: 'Last 180 Days' },
-    { value: 360, label: 'Last 360 Days' },
-  ];
-
+  timePeriods = timePeriods;
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    if (this.myChart) {
+      this.myChart.resize();
+    }
+  }
   ngOnInit(): void {
     const chartDom = document.getElementById('main');
     this.myChart = echarts.init(chartDom);
     this.updateGraph();
+    this.myChart.resize();
   }
   updateGraph(): void {
     if (this.myChart) {
@@ -56,7 +58,8 @@ export class GraphComponent implements OnInit {
             max: 250,
             interval: 50,
           },
-        ],legend: {
+        ],
+        legend: {
           data: ['קשה', 'בינוני', 'קל'],
           textStyle: {
             color: 'black',
@@ -110,11 +113,13 @@ export class GraphComponent implements OnInit {
   toggleFilteringDropdown() {
     this.isFilteringOptionOpen = !this.isFilteringOptionOpen;
   }
-  applySelection(){
+  applySelection() {
+    this.selectedNumberOfDays = this.selectedNumberOfDaysTemp;
     this.updateGraph();
     this.toggleFilteringDropdown();
   }
-  cancelSelection(){
+  cancelSelection() {
     this.toggleFilteringDropdown();
   }
+
 }

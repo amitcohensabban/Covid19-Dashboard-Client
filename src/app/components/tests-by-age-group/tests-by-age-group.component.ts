@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import * as echarts from 'echarts';
-import { option3, generateFakeDataForTests } from 'src/app/data/app.graphes';
+import { option3, generateFakeDataForTests,timePeriods } from 'src/app/data/app.graphes';
 @Component({
   selector: 'app-tests-by-age-group',
   templateUrl: './tests-by-age-group.component.html',
@@ -9,19 +9,22 @@ import { option3, generateFakeDataForTests } from 'src/app/data/app.graphes';
 export class TestsByAgeGroupComponent implements OnInit {
   myChart: echarts.ECharts | null = null;
   isFilteringOptionOpen = false;
-  timePeriods = [
-    { value: 30, label: 'Last 30 Days' },
-    { value: 90, label: 'Last 90 Days' },
-    { value: 180, label: 'Last 180 Days' },
-    { value: 360, label: 'Last 360 Days' },
-  ];
+  timePeriods = timePeriods;
   option: any;
   selectedTimePeriod = 30;
+  selectedNumberOfDaysTemp: number = 30;
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    if (this.myChart) {
+      this.myChart.resize();
+    }
+  }
 
   ngOnInit(): void {
     this.option = option3;
     this.myChart = echarts.init(document.getElementById('chartContainer'));
     this.updateGraph();
+    this.myChart.resize();
   }
   toggleFilteringDropdown() {
     this.isFilteringOptionOpen = !this.isFilteringOptionOpen;
@@ -47,12 +50,12 @@ export class TestsByAgeGroupComponent implements OnInit {
       this.myChart.setOption(this.option);
     }
   }
-  applySelection(){
+  applySelection() {
+    this.selectedTimePeriod = this.selectedNumberOfDaysTemp;
     this.updateGraph();
     this.toggleFilteringDropdown();
   }
-  cancelSelection(){
+  cancelSelection() {
     this.toggleFilteringDropdown();
   }
-
 }
