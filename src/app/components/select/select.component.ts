@@ -25,6 +25,7 @@ export class SelectComponent implements OnInit {
     this.getSelectedValues();
     this.processArrayData(this.tableData);
     this.setInnerTitle();
+
   }
   handleSearchComponentClick(optionsVisible: boolean) {
     this.isSearchComponentClicked = !this.isSearchComponentClicked;

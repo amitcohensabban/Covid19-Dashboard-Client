@@ -59,3 +59,18 @@ tr {
 .red-bg {
   background-color: #fa9e8f;
 }
+.bar-container{
+display: inline-block;
+    width: 30px;
+    height: 10px;
+    background: #F1F5FA;
+    cursor: pointer;
+}
+.fill-bar {
+  height: 100%;
+  background-color: #8CC8EA;
+  &:hover{
+    opacity: 0.83;
+}
+}
+

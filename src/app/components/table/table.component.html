@@ -1,72 +1,102 @@
-  <div *ngIf="tableName === 'bedOccupancyTable'" class="table-container rtl-scroll">
+<div
+  *ngIf="tableName === 'bedOccupancyTable'"
+  class="table-container rtl-scroll"
+>
+  <table>
+    <thead class="header-table">
+      <tr>
+        <th (click)="sortTable('hospitalName')">בית חלים</th>
+        <th (click)="sortTable('generalOccupancy')">תפוסה כללית</th>
+        <th (click)="sortTable('internalMedicineOccupancy')">
+          תפוסה מחלקה פנימית
+        </th>
+      </tr>
+    </thead>
+    <tbody class="table-body">
+      <tr *ngFor="let item of filteredTableData">
+        <td>{{ item.hospitalName }}</td>
+        <td>
+          <div class="bar-container">
+            <div
+              [style.width]="getWidth(item.generalOccupancy)"
+              class="fill-bar"
+            ></div>
+          </div>
+            {{ item.generalOccupancy }}%
+        </td>
+        <td>
+          <div class="bar-container">
+            <div
+              [style.width]="getWidth(item.internalMedicineOccupancy)"
+              class="fill-bar"
+            ></div>
+          </div>
+            {{ item.internalMedicineOccupancy }}%
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
-    <table >
-      <thead class="header-table">
-        <tr>
-          <th (click)="sortTable('hospitalName') ">בית חלים</th>
-          <th (click)="sortTable('generalOccupancy')">תפוסה כללית</th>
-          <th (click)="sortTable('internalMedicineOccupancy')">תפוסה מחלקה פנימית</th>
-        </tr>
-      </thead>
-      <tbody class="table-body">
-        <tr *ngFor="let item of filteredTableData">
-          <td>{{ item.hospitalName }}</td>
-          <td>{{ item.generalOccupancy }}</td>
-          <td>{{ item.internalMedicineOccupancy }}</td>
-        </tr>
-      </tbody>
-    </table>
+<div
+  *ngIf="tableName === 'verifiedPatientsTable'"
+  class="table-container rtl-scroll"
+>
+  <table>
+    <thead class="header-table">
+      <tr>
+        <th (click)="sortTable('countryName')">מדינה</th>
+        <th (click)="sortTable('enteringIsrael')">נכנסים לישראל</th>
+        <th (click)="sortTable('verifiedCitizens')">אזרחים מאומתים</th>
+        <th (click)="sortTable('verifiedForeigners')">זרים מאומתים</th>
+        <th (click)="sortTable('verifiedByTheIncoming')">מאומתים מהנכנסים</th>
+      </tr>
+    </thead>
+    <tbody class="table-body">
+      <tr *ngFor="let item of filteredTableData">
+        <td>{{ item.countryName }}</td>
+        <td>{{ item.enteringIsrael }}</td>
+        <td>{{ item.verifiedCitizens }}</td>
+        <td>{{ item.verifiedForeigners }}</td>
+        <td>{{ item.verifiedByTheIncoming }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
-  </div>
-
-  <div *ngIf="tableName === 'verifiedPatientsTable'" class="table-container rtl-scroll">
-    <table >
-      <thead class="header-table">
-        <tr>
-          <th (click)="sortTable('countryName') ">מדינה</th>
-          <th (click)="sortTable('enteringIsrael') ">נכנסים לישראל</th>
-          <th (click)="sortTable('verifiedCitizens') ">אזרחים מאומתים</th>
-          <th (click)="sortTable('verifiedForeigners') ">זרים מאומתים</th>
-          <th (click)="sortTable('verifiedByTheIncoming') ">מאומתים מהנכנסים</th>
-        </tr>
-      </thead>
-      <tbody class="table-body">
-        <tr *ngFor="let item of filteredTableData">
-          <td>{{ item.countryName }}</td>
-          <td>{{ item.enteringIsrael }}</td>
-          <td>{{ item.verifiedCitizens }}</td>
-          <td>{{ item.verifiedForeigners }}</td>
-          <td>{{ item.verifiedByTheIncoming }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div *ngIf="tableName === 'trafficLightsPlanTable'" class="table-container rtl-scroll">
-    <table >
-      <thead class="header-table">
-        <tr>
-          <th (click)="sortTable('city') ">יישוב</th>
-          <th (click)="sortTable('grade') ">ציון</th>
-          <th (click)="sortTable('newPatients') ">חולים חדשים </th>
-          <th (click)="sortTable('positivePatients') ">הבדיקות החיוביות</th>
-          <th (click)="sortTable('rateOfChange') ">שיעור שינוי מאומתים</th>
-          <th (click)="sortTable('activePatients') ">חולים פעילים</th>
-        </tr>
-      </thead>
-      <tbody class="table-body">
-        <tr *ngFor="let item of filteredTableData">
-          <td>{{ item.city }}</td>
-          <td [ngClass]="{
+<div
+  *ngIf="tableName === 'trafficLightsPlanTable'"
+  class="table-container rtl-scroll"
+>
+  <table>
+    <thead class="header-table">
+      <tr>
+        <th (click)="sortTable('city')">יישוב</th>
+        <th (click)="sortTable('grade')">ציון</th>
+        <th (click)="sortTable('newPatients')">חולים חדשים</th>
+        <th (click)="sortTable('positivePatients')">הבדיקות החיוביות</th>
+        <th (click)="sortTable('rateOfChange')">שיעור שינוי מאומתים</th>
+        <th (click)="sortTable('activePatients')">חולים פעילים</th>
+      </tr>
+    </thead>
+    <tbody class="table-body">
+      <tr *ngFor="let item of filteredTableData">
+        <td>{{ item.city }}</td>
+        <td
+          [ngClass]="{
             'green-bg': item.grade < 4.5,
             'yellow-bg': item.grade >= 4.5 && item.grade < 6,
             'orange-bg': item.grade >= 6 && item.grade < 7.5,
             'red-bg': item.grade >= 7.5
-          }">{{ item.grade|number:'1.1-1' }}</td>
-          <td>{{ item.newPatients }}</td>
-          <td>{{ item.positivePatients }}</td>
-          <td>{{ item.rateOfChange|number:'1.2-2' }}</td>
-          <td>{{ item.activePatients }}</td>
-        </tr>
-      </tbody>    </table>
-  </div>
+          }"
+        >
+          {{ item.grade | number : "1.1-1" }}
+        </td>
+        <td>{{ item.newPatients }}</td>
+        <td>{{ item.positivePatients }}</td>
+        <td>{{ item.rateOfChange | number : "1.2-2" }}</td>
+        <td>{{ item.activePatients }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -45,4 +45,8 @@ export class TableComponent implements OnInit {
       }
     });
   }
+  getWidth(width:any): string {
+    const res=width/3;
+    return `${res}px`;
+  }
 }
