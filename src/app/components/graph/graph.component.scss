@@ -1,5 +1,4 @@
 #main {
-  // width: 487px;
   height: 235px;
   padding: 0px;
   margin: 0px;
@@ -24,6 +23,7 @@
   background: var(--filter-button-background-color);
   margin: 0;
   padding: 0;
+  padding-right: 10px;
   display: flex;
   max-width: 100%;
   align-items: center;
@@ -70,7 +70,6 @@
   min-width: 173px;
   min-height: 200px;
   height: auto;
-  max-height: 275px;
 }
 
 .dropdown-arrow.up {
@@ -100,6 +99,31 @@
   cursor: pointer;
 }
 h4 {
-  margin: 0;
-  font-size: 14px;
+  font-size: 15px;
+  margin: 12px 10px 4px;
+  padding: 0;
+}
+.radio-button {
+  padding-right: 12px;
+  cursor: pointer;
+}
+.severity-levels {
+  margin: 10px;
+  padding-right: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.time-periods {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.filter-container {
+  max-height: 215px;
+  overflow: auto;
+}
+.checkbox-label
+{
+cursor: pointer;
 }

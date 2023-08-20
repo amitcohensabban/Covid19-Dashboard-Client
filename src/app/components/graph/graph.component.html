@@ -1,5 +1,9 @@
 <div class="filters-dropdown-container">
   <div class="filters-dropdown-button">
+    <div *ngIf="showMild">קל,</div>
+    <div *ngIf="showModerate">בינוני,</div>
+    <div *ngIf="showSevere">קשה,</div>
+
     <ng-container [ngSwitch]="selectedNumberOfDays">
       <div class="time" *ngSwitchCase="30">חודש אחרון</div>
       <div class="time" *ngSwitchCase="90">3 חודשים</div>
@@ -10,34 +14,49 @@
     <div
       *ngIf="isFilteringOptionOpen"
       class="filters-dropdown-items-container filters-dropdown-options-container"
-    >    <h4>זמן</h4>
+    ><div class="filter-container">
+      <h4>מצב מאושפזים</h4>
 
-      <label *ngFor="let period of timePeriods" class="radio-button">
-        <input
-          type="radio"
-          name="timePeriod"
-          [(ngModel)]="selectedNumberOfDaysTemp"
-          [value]="period.value"
-        />
-        <ng-container [ngSwitch]="period.value">
-          <div style="display: inline" *ngSwitchCase="30">חודש אחרון</div>
-          <div style="display: inline" *ngSwitchCase="90">3 חודשים</div>
-          <div style="display: inline" *ngSwitchCase="180">6 חודשים</div>
-          <div style="display: inline" *ngSwitchCase="360">שנה</div>
-        </ng-container>
-      </label>
+      <div class="severity-levels">
+        <label class="checkbox-label">
+          <input type="checkbox" [(ngModel)]="showSevere" />
+          קשה
+        </label>
+        <label class="checkbox-label">
+          <input type="checkbox" [(ngModel)]="showModerate" />
+          בינוני
+        </label>
+        <label class="checkbox-label">
+          <input type="checkbox" [(ngModel)]="showMild" />
+          קל
+        </label>
+      </div>
+      <h4>זמן</h4>
 
-
-
+      <div class="time-periods">
+        <label *ngFor="let period of timePeriods" class="radio-button">
+          <input
+            type="radio"
+            name="timePeriod"
+            [(ngModel)]="selectedNumberOfDaysTemp"
+            [value]="period.value"
+          />
+          <ng-container [ngSwitch]="period.value">
+            <div style="display: inline" *ngSwitchCase="30">חודש אחרון</div>
+            <div style="display: inline" *ngSwitchCase="90">3 חודשים</div>
+            <div style="display: inline" *ngSwitchCase="180">6 חודשים</div>
+            <div style="display: inline" *ngSwitchCase="360">שנה</div>
+          </ng-container>
+        </label>
+      </div>
+</div>
       <div class="dropdown-buttons">
         <button (click)="applySelection()">אישור</button>
         <button (click)="cancelSelection()">ביטול</button>
       </div>
-
-
-
-
     </div>
+
+
     <div
       class="dropdown-arrow"
       [ngClass]="isFilteringOptionOpen ? 'up' : 'down'"

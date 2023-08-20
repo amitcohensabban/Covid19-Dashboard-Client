@@ -1,6 +1,10 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import * as echarts from 'echarts';
-import {  optionTwo,  generateFakeData,  timePeriods,} from 'src/app/data/app.graphes';
+import {
+  optionTwo,
+  generateFakeData,
+  timePeriods,
+} from 'src/app/data/app.graphes';
 
 @Component({
   selector: 'app-graph',
@@ -13,6 +17,11 @@ export class GraphComponent implements OnInit {
   myChart: echarts.ECharts | null = null;
   isFilteringOptionOpen = false;
   timePeriods = timePeriods;
+  showSevere = true;
+  showModerate = true;
+  showMild = true;
+  isTableVisible = true;
+
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
     if (this.myChart) {
@@ -33,15 +42,32 @@ export class GraphComponent implements OnInit {
       const days = Array.from({ length: this.selectedNumberOfDays }, (_, i) => {
         const currentDate = new Date(startDate);
         currentDate.setDate(currentDate.getDate() + i);
-        return currentDate.toLocaleDateString();
+        const formattedDate = currentDate.toLocaleDateString(undefined, {
+          day: 'numeric',
+          month: 'numeric',
+        });
+        return formattedDate;
       });
 
       const { mildData, moderateData, severeData } = generateFakeData(
         this.selectedNumberOfDays
       );
 
-      const option = {
-        tooltip: optionTwo.tooltip,
+      const updatedOption = {
+        tooltip: {
+          trigger: 'axis',
+          formatter: function (params: any) {
+            let content = `<div style="margin-bottom: 5px;">${params[0].axisValueLabel}</div>`;
+            params.forEach((param: { color: any; seriesName: any; value: any; }) => {
+              content += '<div style="display: flex; align-items: center;gap:5px; margin-bottom: 3px;">';
+              content += `<span style="display:inline-block; width:10px; height:10px; background-color:${param.color}; border-radius: 50%; margin-right: 5px;"></span>`;
+              content += `<span style="font-weight: bold;">${param.seriesName}</span>`;
+              content += `<span style="margin-left: 5px; padding-left: 3px;">${param.value}</span>`;
+              content += '</div>';
+            });
+            return content;
+          },
+        },
         toolbox: optionTwo.toolbox,
         grid: optionTwo.grid,
         xAxis: [
@@ -64,50 +90,53 @@ export class GraphComponent implements OnInit {
           textStyle: {
             color: 'black',
           },
-          itemWidth: 10,
-          itemHeight: 10,
+          itemWidth: 15,
+          itemHeight: 15,
           icon: 'circle',
+          selectedMode: false,
+          right: '15px',
+          top: '20px',
         },
-
         series: [
-          {
-            name: 'קשה',
-            type: 'line',
-            stack: 'Total',
-            areaStyle: {},
-            emphasis: { focus: 'series' },
-            data: severeData,
-            itemStyle: {
-              color: '#85DBFE',
-            },
-          },
-
-          {
-            name: 'בינוני',
-            type: 'line',
-            stack: 'Total',
-            areaStyle: {},
-            emphasis: { focus: 'series' },
-            data: moderateData,
-            itemStyle: {
-              color: '#B6CA51',
-            },
-          },
-          {
-            name: 'קל',
-            type: 'line',
-            stack: 'Total',
-            areaStyle: {},
-            emphasis: { focus: 'series' },
-            data: mildData,
-            itemStyle: {
-              color: '#4CA5A5',
-            },
-          },
-        ],
+          this.showSevere
+            ? {
+                name: 'קשה',
+                type: 'line',
+                stack: 'Total',
+                areaStyle: {},
+                data: severeData,
+                itemStyle: {
+                  color: '#85DBFE',
+                },
+              }
+            : null,
+          this.showModerate
+            ? {
+                name: 'בינוני',
+                type: 'line',
+                stack: 'Total',
+                areaStyle: {},
+                data: moderateData,
+                itemStyle: {
+                  color: '#B6CA51',
+                },
+              }
+            : null,
+          this.showMild
+            ? {
+                name: 'קל',
+                type: 'line',
+                stack: 'Total',
+                areaStyle: {},
+                data: mildData,
+                itemStyle: {
+                  color: '#4CA5A5',
+                },
+              }
+            : null,
+        ].filter((series) => series !== null),
       };
-
-      this.myChart.setOption(option);
+      this.myChart.setOption(updatedOption, true);
     }
   }
   toggleFilteringDropdown() {
@@ -121,5 +150,4 @@ export class GraphComponent implements OnInit {
   cancelSelection() {
     this.toggleFilteringDropdown();
   }
-
 }

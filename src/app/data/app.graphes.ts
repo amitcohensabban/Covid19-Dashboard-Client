@@ -30,7 +30,6 @@ export const data30: number[] = generateRandomData(30);
 export const data90: number[] = generateRandomData(90);
 export const data180: number[] = generateRandomData(180);
 export const data360: number[] = generateRandomData(360);
-
 export const option = {
   tooltip: {
     trigger: 'axis',
@@ -94,13 +93,12 @@ export const option = {
   ],
 
 };
-
 //// second graph
 export const optionTwo = {
   tooltip: {
     trigger: 'axis',
     axisPointer: {
-      type: 'cross',
+      type: 'line',
       label: {
         backgroundColor: '#6a7985',
       },
@@ -126,27 +124,25 @@ export const optionTwo = {
   ],
   series: [
     {
-      name: 'Video Ads',
+      name: '',
       type: 'line',
       stack: 'Total',
       areaStyle: {},
       emphasis: {
         focus: 'series',
       },
-      data: [150, 232, 201, 154, 190, 330, 410],
     },
     {
-      name: 'Direct',
+      name: '',
       type: 'line',
       stack: 'Total',
       areaStyle: {},
       emphasis: {
         focus: 'series',
       },
-      data: [320, 332, 301, 334, 390, 330, 320],
     },
     {
-      name: 'Search Engine',
+      name: '',
       type: 'line',
       stack: 'Total',
       label: {
@@ -157,12 +153,9 @@ export const optionTwo = {
       emphasis: {
         focus: 'series',
       },
-      data: [820, 932, 901, 934, 1290, 1330, 1320],
     },
   ],
-
 };
-
 export function generateFakeData(numberOfDays: number): {
   mildData: number[];
   moderateData: number[];
@@ -174,7 +167,6 @@ export function generateFakeData(numberOfDays: number): {
 
   return { mildData, moderateData, severeData };
 }
-
 export function generateRandomData2(numberOfDays: number): number[] {
   const data = [];
   for (let i = 0; i < numberOfDays; i++) {
@@ -182,7 +174,6 @@ export function generateRandomData2(numberOfDays: number): number[] {
   }
   return data;
 }
-
 export const option3 = {
   title: {
     text: '',

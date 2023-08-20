@@ -40,12 +40,12 @@ body{
   overflow: overlay;
   box-sizing: border-box;
   z-index: 999;
-  position: relative; 
+  position: relative;
   direction: rtl;
 
   font-family: "Open Sans Hebrew";
   font-weight: bold;
-  background-color:var(--card-background-color);
+  background-color:var(--layout-window-mode-background-color);
 }
 .no-scroll{
   overflow: hidden;
