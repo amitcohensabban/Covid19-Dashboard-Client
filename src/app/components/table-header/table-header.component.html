@@ -43,3 +43,9 @@
 
 <app-grades-colors *ngIf="tableData && tableData[0] && tableData[0][0].city === 'אור יהודה'" class="container"></app-grades-colors>
 
+<div *ngIf="tableData && tableData[0] && tableData[0][0].countryName === 'ארצות הברית'" class="info-table">
+  <div><span class="yellow"></span> מדינות בסיכון נמוך</div>
+  <div> <span class="orange"></span> מדינות בסיכון</div>
+  <div> <span class="red"></span> מדינות בסיכון גבוה  </div>
+
+</div>

@@ -5,9 +5,13 @@ import { Component,Renderer2 } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+  previousDate!: Date;
   darkMode = false;
-isNavOpen:boolean = false;
-  constructor(private renderer: Renderer2) {}
+  isNavOpen:boolean = false;
+  constructor(private renderer: Renderer2) {
+    this.calculatePreviousDate();
+
+  }
 
   toggleDarkMode() {
     this.darkMode = !this.darkMode;
@@ -24,5 +28,10 @@ isNavOpen:boolean = false;
   toggleSideNav(){
     document.body.classList.add('no-scroll');
     this.isNavOpen=!this.isNavOpen;
+  }
+  calculatePreviousDate() {
+    const currentDate = new Date();
+    currentDate.setDate(currentDate.getDate() - 1);
+    this.previousDate = currentDate;
   }
 }

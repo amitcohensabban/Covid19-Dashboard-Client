@@ -9,6 +9,7 @@ export class SelectComponent implements OnInit {
   @Input() filterOptions: any[] = [];
   @Input() tableData!: any[];
   @Input() tableName!: string;
+  firstTableData!: any[];
   selectedValues!: string;
   searchOptions!: any[];
   isFilteringOptionOpen: boolean = false;
@@ -25,6 +26,7 @@ export class SelectComponent implements OnInit {
     this.getSelectedValues();
     this.processArrayData(this.tableData);
     this.setInnerTitle();
+    this.firstTableData=this.tableData
 
   }
   handleSearchComponentClick(optionsVisible: boolean) {
@@ -46,12 +48,13 @@ export class SelectComponent implements OnInit {
     this.isFilteringOptionOpen = false;
     this.isSearchComponentClicked = false;
     this.isApplyClicked = false;
+
+
   }
   cloneFilterOptions() {
     this.previousSelection = JSON.parse(JSON.stringify(this.filterOptions));
   }
   cancelSelection() {
-    this.filterOptions = JSON.parse(JSON.stringify(this.previousSelection));
     this.closeFilteringDropdown();
   }
   applySelection() {

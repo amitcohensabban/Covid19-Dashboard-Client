@@ -46,6 +46,7 @@
     <thead class="header-table">
       <tr>
         <th (click)="sortTable('countryName')">מדינה</th>
+        <th>צבע</th>
         <th (click)="sortTable('enteringIsrael')">נכנסים לישראל</th>
         <th (click)="sortTable('verifiedCitizens')">אזרחים מאומתים</th>
         <th (click)="sortTable('verifiedForeigners')">זרים מאומתים</th>
@@ -55,10 +56,17 @@
     <tbody class="table-body">
       <tr *ngFor="let item of filteredTableData">
         <td>{{ item.countryName }}</td>
+        <td
+          [ngClass]="{
+            'yellow-bg': item.verifiedByTheIncoming <= 50 ,
+            'orange-bg': item.verifiedByTheIncoming >= 51 ,
+            'red-bg': item.verifiedByTheIncoming >= 75
+          }"
+        >
         <td>{{ item.enteringIsrael }}</td>
         <td>{{ item.verifiedCitizens }}</td>
         <td>{{ item.verifiedForeigners }}</td>
-        <td>{{ item.verifiedByTheIncoming }}</td>
+        <td>{{ item.verifiedByTheIncoming }}%</td>
       </tr>
     </tbody>
   </table>

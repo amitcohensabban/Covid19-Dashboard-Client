@@ -9,7 +9,7 @@ import { FilterService } from 'src/app/services/filter.service';
 export class SearchComponent implements OnInit {
   @Input() options!: string[];
   @Input() optionsVisible = false;
-  @Input()tableData!:any[];
+  @Input() tableData!: any[];
   selectedOptions: string[] = [];
   searchQuery = '';
   filteredOptions: string[] = [];
@@ -31,9 +31,22 @@ export class SearchComponent implements OnInit {
     console.log(this.optionsVisible);
   }
   filterOptions(): void {
-    this.filteredOptions = this.options.filter((option) =>
-      option.toLowerCase().includes(this.searchQuery.toLowerCase())
-    );
+    this.filteredOptions = this.options
+      .filter((option) =>
+        option.toLowerCase().includes(this.searchQuery.toLowerCase())
+      )
+      .sort((a, b) => {
+        const isSelectedA = this.selectedOptions.includes(a);
+        const isSelectedB = this.selectedOptions.includes(b);
+
+        if (isSelectedA && !isSelectedB) {
+          return -1;
+        } else if (!isSelectedA && isSelectedB) {
+          return 1;
+        }
+
+        return 0;
+      });
   }
 
   toggleOption(option: string): void {
@@ -46,6 +59,7 @@ export class SearchComponent implements OnInit {
     }
 
     this.FilterService.updateSelectedCheckBoxes(this.selectedOptions);
+    this.filterOptions();
   }
   setPlaceholder(): void {
     if (this.tableData.length == 10)
