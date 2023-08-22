@@ -9,13 +9,14 @@ table {
 th {
   font-weight: 400;
   padding: 15px;
+  cursor: pointer;
 }
 tr {
   height: 50px;
   border-bottom: 1px solid #daeaee;
 }
 .header-table {
-  background-color: #e6f1f3;
+  background-color: var(--banner-background-color);
   height: 40px;
   width: 100%;
   position: sticky;
